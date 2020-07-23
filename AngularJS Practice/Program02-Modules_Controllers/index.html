@@ -1,0 +1,25 @@
+<!--
+1. Module is a container for different parts of the application i.e controllers, services, directives, filters etc.
+2. Modules are the entry point to AngularJS applications like Main() method in Java, C# etc.
+3. Modules wire together different parts of the applications (controllers etc) defined in that module.
+
+4. Controller are JavaScript functions, there job is to build a model(data) for the view to display.
+5. $scope is the Angular object passed to the controller, which attachs the model(data) to the $scope object making it availabe for the view to display.
+
+-->
+
+<!doctype html>
+<html ng-app="myModule">
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/Script.js"></script>
+    </head>
+    <body>
+        <div ng-controller="myController">
+            {{message}}
+        </div>
+        <div ng-controller="myController1">
+            {{message}}
+        </div>
+    </body>
+</html> 

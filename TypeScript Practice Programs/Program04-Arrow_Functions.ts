@@ -1,6 +1,6 @@
 // In JavaScript we can define functions as follow
 
-var func = function(message){
+var func = function(message){                                   //Anonymous function
     console.log("Learner Welcome to "+message+" !!!");
 }
 

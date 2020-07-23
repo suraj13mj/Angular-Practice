@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="Scripts/angular.js"></script>
+    </head>
+    <body>
+        <div ng-app="">
+            <div>
+                10 + 20 = {{ 10 + 20 }}   <!-- {{ }} Binding Expressions -->
+            </div>
+            <div>
+                {{ 10 == 20 }}
+            </div>
+            <div>
+                {{ {"Name":"Suraj", "Rollno":"10", "City":"Hubli"}.Name }}       <!--Javascript Objects-->
+            </div>
+            <div>
+                {{ ["Jonas","Martha","Bartos","Ulrich"].[2] }}                   <!--Arrays-->        
+            </div>
+        </div>
+
+        <div>
+            40 + 50 = {{ 40 + 50 }}       <!-- {{ }} Binding Expressions not available here-->
+        </div>
+
+    </body>
+</html> 
+
+
+
+<!-- 
+1. ng-app is AngularJS directive.
+2. It is the starting point of AngularJS application.
+3. AngularJS Framework searches for this directive in the HTML page, it then bootstraps that part of HTML application as AngularJS application.
+4. Binding Expressions are available only in that part where np-app directive is present.
+
+
+?? Why Arrays and Javascript objects did not support binding expressions here..?
+-->

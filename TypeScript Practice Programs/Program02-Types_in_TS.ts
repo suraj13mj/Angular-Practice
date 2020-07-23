@@ -2,7 +2,7 @@
 // TypeScript has following types
 
 let num = 5;
-num = "Hello";          //Gives Error in TS but compiles into JS as JavaScript supports it
+num = "Hello";          //Gives Error in TS but compiles into JS as JavaScript (var) supports it
 
 // Types in TS
 
@@ -18,4 +18,5 @@ num1 = true;
 
 enum Colors {Blue = 0, Red = 1, Yellow = 2, Green = 3, Orange = 4};
 let bgColor = Colors.Blue;
+let fgColor = Colors.Yellow;
 

@@ -1,0 +1,69 @@
+<!-- ng-repeat is similar to foreach in C# -->
+
+
+<!DOCTYPE html>
+<html ng-app = "module">
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/Script.js"></script>
+    </head>
+    <body>
+        <div ng-controller = "employee_controller">
+            <table>
+                <thead>
+                    <th>Employee No</th>
+                    <th>Employee Name</th>
+                    <th>Employee Salary</th>
+                    <th>Employee Department</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat = "emp in Employee">          <!-- for each emp in Employees -->
+                        <td>{{ emp.empNo }}</td>
+                        <td>{{ emp.empName }}</td>
+                        <td>{{ emp.empSalary }}</td>
+                        <td>{{ emp.empDept }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <br>
+        <br>
+
+        <!--Nested ng-repeat-->
+        <div ng-controller = "countries_controller"> 
+            <ul ng-repeat="country in Countries">              <!-- for each country in Countries -->
+                <li> {{ country.countryName }} </li>                <!--for each city in country.cities-->
+                <ul ng-repeat="city in country.countryCities">
+                    <li> {{ city }} </li>
+                </ul>
+            </ul>
+        </div>
+
+        <br>
+        <br>
+        
+        <!--We can get the index of each item using $index object -->
+        <div ng-controller = "countries_controller"> 
+            <ul ng-repeat="country in Countries">             
+                <li> <strong>{{ country.countryName }}</strong> -- Index: {{ $index }} </li>          
+                <ul ng-repeat="city in country.countryCities">
+                    <li> <strong>{{ city }}</strong> -- ParentIndex: {{ $parent.$index }} -- ChildIndex: {{$index}} </li>
+                </ul>
+            </ul>
+        </div>
+        
+        <br>
+        <br>
+
+        <!-- We can also use ng-init to store parent index and use it-->
+        <div ng-controller = "countries_controller"> 
+            <ul ng-repeat="country in Countries" ng-init = "parent = $index">             
+                <li> <strong>{{ country.countryName }}</strong> -- Index: {{ parent }} </li>          
+                <ul ng-repeat="city in country.countryCities">
+                    <li> <strong>{{ city }}</strong> -- ParentIndex: {{ parent }} -- ChildIndex: {{$index}} </li>
+                </ul>
+            </ul>
+        </div>
+    </body>
+</html>

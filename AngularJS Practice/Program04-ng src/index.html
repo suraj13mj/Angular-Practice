@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app = "myModule">
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/Script.js"></script>
+    </head>
+    <body>
+        <div ng-controller = "myController">
+            <div>
+                Country Name : {{ Country.country_name }}
+            </div>
+            <div>
+                Country Capital : {{ Country.country_cap }}
+            </div>
+            <div>
+                <!-- <img src="{{ Country.flag_path }}" alt="{{ Country.country_name + 'Flag' }}" style="height:100px; width:200px" /> -->
+                <img ng-src="{{ Country.flag_path }}" alt="{{ Country.country_name + 'Flag' }}" style="height:100px; width:200px" />
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<!-- 
+    1. Here we get an GET 404 Error for image not found, but even then the image is displayed.
+    2. The HTML DOM tries to parse the "{{ Country.flag_path }}" it self as actual path and searches that path for the image and returns 404 Error.
+    3. But once the AngularJS Binding Expression is evaluated the actual path of the image is found and displayed.
+
+    4. Inorder to prevent this we need to use "ng-src" directive instead of "src"
+-->

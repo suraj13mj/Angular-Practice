@@ -1,0 +1,32 @@
+<!-- We can handle events using "ng-click" directive by calling respective function defined in contrller -->
+
+
+<!DOCTYPE html>
+<html ng-app = "module">
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/Script.js"></script>
+        <link href="Styles.css" rel="stylesheet"/>
+    </head>
+    <body ng-controller="likes_controller">
+        <table>
+            <thead>
+                <th>Technology</th>
+                <th>Likes</th>
+                <th>Dislikes</th>
+                <th>Like/Dislike</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat = "tech in Technologies">
+                    <td> {{ tech.name }} </td>
+                    <td> {{ tech.likes }} </td>
+                    <td> {{ tech.dislikes }} </td>
+                    <td> 
+                        <input type="button" value="Like" ng-click=incrementLikes(tech) />
+                        <input type="button" value="Dislike" ng-click=incrementDislikes(tech) />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

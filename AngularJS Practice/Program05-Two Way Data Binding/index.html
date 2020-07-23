@@ -1,0 +1,55 @@
+<!-- 
+    1. In Earlier examples, if the changes made to the model (in the controller), were visible in the view.
+    2. If changes made to the view are to be affected to the model(data), then we use "ng-model" directive.
+    3. Through this changes made in the view are reflected in the properties of model(data), thus two way data binding is achieved.
+    4. Thus there is no need to write extra code in order to handle this.
+    5. ng-model is only applicable to 'input','textarea' and 'select'
+-->
+
+
+<!DOCTYPE html> 
+<html ng-app = "module">
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/Script.js"></script>
+    </head>
+    <body>
+        <div ng-controller = "name_controller">
+            <div>
+                <input type="text" ng-model="name"/>
+                <p>{{ name }}</p>
+            </div>
+            <div>
+                <input type="text" ng-model="new_name"/>            <!-- If we give property not defined in controller, then it creates a new model for that propery -->
+                <p>{{ new_name }}</p>                               <!-- which can be accessed in the controller -->
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div ng-controller = "employee_controller">
+            <table>
+                <tr>
+                    <td> Employee FirstName </td>
+                    <td><input type="text" ng-model="employee.firstName"/></td>
+                </tr>
+                <tr>
+                    <td> Employee LastName </td>
+                    <td><input type="text" ng-model="employee.lastName"/></td>
+                </tr>
+                <tr>
+                    <td> Employee Department </td>
+                    <td><input type="text" ng-model="employee.department"/></td>
+                </tr>
+            </table>
+            <br>
+            <div>
+                <h3> {{ employee.firstName }} </h3>
+                <h3> {{ employee.lastName }} </h3>
+                <h3> {{ employee.department }} </h3>
+            </div>
+        </div>
+    </body>
+</html>
+
