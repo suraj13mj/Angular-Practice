@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <link rel="stylesheet" href="Styles.css"/>
+</head>
+
+<body ng-app="module">
+    <div ng-controller="emp_controller">
+        <h1 style="text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>User Database</b></h1>
+        <br>
+        <fieldset style="background-color:rgb(235, 135, 135)">
+            <br>
+            <div style="padding-left: 10px;">
+                First Name : <input type="text" ng-model="emp.FirstName" />
+                Last Name : <input type="text" ng-model="emp.LastName" />
+                Gender : <input type="text" ng-model="emp.Gender"/>
+                Salary : <input type="number" ng-model="emp.Salary" />
+            </div>
+            <p />
+            <div style="padding-left: 10px;">
+                <input type="button" value="Update Employee" ng-click="updateEmployee()" />
+                <input type="button" value="Add Employee" ng-click="addEmployee()" />
+                <input type="button" value="Refresh" ng-click="getEmployees()" />
+                <input type="button" value="Clear Details" ng-click="clear()" />
+                <span ng-bind="error" class="message"></span>
+            </div>
+            <p />
+        </fieldset>
+
+
+        <div >
+            <br>
+            <div class = "options">Search : <input type="text" ng-model = "searchText.FirstName" placeholder="Search User Name"/></div>
+            <div class = "options1">Hide Salary : <input type="checkbox" ng-model = "hideSalary"/></div>
+            <div class = "options2">Enable Editting : <input type="checkbox" ng-model = "hideEditting" /></div>
+            <br><br>
+        </div>
+      
+        <fieldset>
+            <legend>Employees</legend>
+            <table   style="width:100%; padding: 5pt">
+                <tr class="heading">
+                    <th ng-click = "ColumnSort('ID')"> ID <div ng-class = "getSortClass('ID')"></div></th>
+                    <th ng-click = "ColumnSort('FirstName')"> First Name <div ng-class = "getSortClass('FirstName')"></div></th>
+                    <th ng-click = "ColumnSort('LastName')"> Last Name <div ng-class = "getSortClass('LastName')"></div></th>
+                    <th ng-click = "ColumnSort('Gender')"> Gender <div ng-class = "getSortClass('Gender')"></div></th>
+                    <th ng-click = "ColumnSort('Salary')" ng-hide = "hideSalary"> Salary <div ng-class = "getSortClass('Salary')"></div></th>
+                    <th ng-hide = "hideEditting"></th>
+                </tr>
+                <tr ng-repeat="e in emps | filter: searchText | orderBy : sortColumn : reverseSort">
+                    <td>{{ e.ID }}</td>
+                    <td>{{ e.FirstName }}</td>
+                    <td>{{ e.LastName }}</td>
+                    <td>{{ e.Gender }}</td>
+                    <td ng-hide = "hideSalary">{{ e.Salary | currency : '₹ ':0 }}</td>
+                    <td ng-hide = "hideEditting">
+                        <button ng-click="editEmployee(e.ID)">Edit</button>
+                        <button ng-click="deleteEmployee(e.ID)">Delete</button>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+</body>
+</html>

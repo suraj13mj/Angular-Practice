@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app = "module">
+    <head>
+        <script src = "Scripts/angular.js"></script>
+        <script src = "Scripts/Script.js"></script>
+        <link href = "styles.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div ng-controller = "emp_controller">
+            <table>
+                <thead>
+                    <th ng-click = "ColumnSort('empName')">Employee Name <div ng-class = "getSortClass('empName')"></div></th>
+                    <th ng-click = "ColumnSort('empDOB')">Employee DOB <div ng-class = "getSortClass('empDOB')"></div></th>
+                    <th ng-click = "ColumnSort('empGender')">Employee Gender <div ng-class = "getSortClass('empGender')"></div></th>
+                    <th ng-click = "ColumnSort('empSalary')">Employee Salary <div ng-class = "getSortClass('empSalary')"></div></th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat = "emp in Employee | orderBy : sortColumn : reverseSort">
+                        <td>{{ emp.empName }}</td>
+                        <td>{{ emp.empDOB | date : "dd MMMM, yyyy" }}</td>
+                        <td>{{ emp.empGender }}</td>
+                        <td>{{ emp.empSalary | currency : "Rs " : 2 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

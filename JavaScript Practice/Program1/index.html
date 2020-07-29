@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function findSum(){
+                let a = document.getElementById("v1");              //Reference to DOM object i.e input
+                let b = document.getElementById("v2");
+                let c = document.getElementById("sm");              //Reference to DOM object i.e span
+
+                let x = parseInt(a.value);                          //Extracting the value from the text box
+                let y = parseInt(b.value);
+                let z = x + y;
+                c.innerHTML = " "+z;                                //innerHTML is a Property(data-member) of span DOM object
+            }
+            function findProduct(){
+                let x = parseInt(document.getElementById("v1").value);    //value is a Property of input DOM object
+                let y = parseInt(document.getElementById("v2").value);
+                let z = x * y;
+
+                // document.getElementById("mul").innerHTML = " " + z;
+                document.write(z)
+            }
+        </script>
+    </head>
+    <body>
+        <h1>SUM</h1>
+        Value 1 : <input id="v1" type="text"/><br>                  <!-- type and id are the attribute of the input DOM object-->
+        Value 2 : <input id="v2" type="text"/><br>
+        Sum : <span id="sm" style="font-size: 24px;"></span><br>
+        Product : <span id="mul" style="font-size: 24px;"></span><br>
+        <button onclick="findSum()">Sum</button>
+        <button onclick="findProduct()">Product</button>
+    </body>
+</html>

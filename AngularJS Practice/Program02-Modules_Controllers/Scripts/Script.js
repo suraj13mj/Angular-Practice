@@ -1,13 +1,13 @@
 /// <reference path="angular.js" />             
 //provide intellisense
 
-//1. Creating modules                            // We use Angular objects module method
+//1. Creating modules                            // We use Angular object's module method
 var myApp = angular.module("myModule",[]);       //1st Param: Module name  //2nd Param: Dependencies on other external modules 
 
 
 //2. Creating Controller
 var myControl = function($scope) {
-    $scope.message = "Hello World";
+    $scope.message = "Hello World";              //attaching message property to scope object
 };
 
 

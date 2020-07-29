@@ -1,7 +1,7 @@
 <!-- 
     1. In Earlier examples, if the changes made to the model (in the controller), were visible in the view.
     2. If changes made to the view are to be affected to the model(data), then we use "ng-model" directive.
-    3. Through this changes made in the view are reflected in the properties of model(data), thus two way data binding is achieved.
+    3. Through this, changes made in the view are reflected in the properties of model(data), thus two way data binding is achieved.
     4. Thus there is no need to write extra code in order to handle this.
     5. ng-model is only applicable to 'input','textarea' and 'select'
 -->
@@ -20,7 +20,7 @@
                 <p>{{ name }}</p>
             </div>
             <div>
-                <input type="text" ng-model="new_name"/>            <!-- If we give property not defined in controller, then it creates a new model for that propery -->
+                <input type="text" ng-model="new_name"/>            <!-- If we give property name not defined in controller, then it creates a new model for that property -->
                 <p>{{ new_name }}</p>                               <!-- which can be accessed in the controller -->
             </div>
         </div>

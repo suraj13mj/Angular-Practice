@@ -1,0 +1,74 @@
+<!-- 
+    1. Filters can be used format, sort and filter the data 
+    2. Filters can be used with Binding exp or directive with "|" symbol
+-->
+
+
+<!DOCTYPE html>
+<html ng-app="module">
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/Script.js"></script>
+        <link href="styles.css" rel="stylesheet"/>
+    </head>
+    <body ng-controller="emp_controller">
+        <table>
+            <thread>
+                <th>Employee Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Salary (Number Filter)</th>
+                <th>Salary (Currency Filter)</th>
+            </thread>
+            <tbody>
+                <tr ng-repeat = "emp in Employee | limitTo:3:2">
+                    <td> {{ emp.empName | uppercase }} </td>
+                    <td> {{ emp.empDOB | date:"dd/MM/yyyy"}} </td>
+                    <td> {{ emp.empGender | lowercase }} </td>
+                    <td> {{ emp.empSalary | number:2 }} </td>
+                    <td> {{ emp.empSalary | currency:"₹ ":1 }} </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <br><br><br>
+
+
+        No of Rows : <input type="number" step="1" min=0 max=5 ng-model="NRows"/>
+        <br>
+        <br>
+        <table>
+            <thread>
+                <th>Employee Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Salary (Number Filter)</th>
+                <th>Salary (Currency Filter)</th>
+            </thread>
+            <tbody>
+                <tr ng-repeat = "emp in Employee | limitTo:NRows">
+                    <td> {{ emp.empName | uppercase | limitTo : 4 }} </td>
+                    <td> {{ emp.empDOB | date:"dd/MM/yyyy"}} </td>
+                    <td> {{ emp.empGender | lowercase | limitTo : 1}} </td>
+                    <td> {{ emp.empSalary | number:2 }} </td>
+                    <td> {{ emp.empSalary | currency:"₹ ":1 }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
+
+
+<!-- 
+    Filter used
+    1. lowercase
+    2. uppercase
+    3. number : No of decimal places
+    4. currency : currency symbol : No of decimal places
+    5. date
+
+    6. limitTo (used to limit to number of rows or characters in string)
+       (limitTo : No of Rows : starting index)
+       (limitTo : No of chars)
+-->

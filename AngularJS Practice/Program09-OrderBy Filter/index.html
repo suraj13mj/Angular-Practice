@@ -1,0 +1,69 @@
+<!-- 
+    1. orderBy filter is used to sort data based on a particular column 
+    2. Syntax: {{ orderBy expression | orderBy : expression : reverse }}
+    3. orderBy filter can be used with both {{ }} and directive
+    4. Example: <tr ng-repeat = "emp in Employees | orderBy : 'empSalary' : false/true"/>   ASC(false) or DESC(true)
+    5. <tr ng-repeat = "emp in Employees | orderBy : '+empSalary'/>                           +(ASC) or -(DESC)
+-->
+
+
+<!DOCTYPE html>
+<html ng-app = "module">
+    <head>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/Script.js"></script>
+        <link href="styles.css" rel="stylesheet"/>
+    </head>
+    <body ng-controller = "emp_controller">
+        Sort based on : <select ng-model = "sortColumn">
+            <option value="+empName">Name ASC</option>
+            <option value="-empName">Name DESC</option>
+            <option value="+empDOB">DOB ASC</option>
+            <option value="-empDOB">DOB DESC</option>
+            <option value="+empGender">Gender ASC</option>
+            <option value="-empGender">Gender DESC</option>
+            <option value="+empSalary">Salary ASC</option>
+            <option value="-empSalary">Salary DESC</option>
+        </select>
+
+        <br><br>
+
+        <table>
+            <thead>
+                <th>Employee Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Salary</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat = "emp in Employee | orderBy : sortColumn" >
+                    <td> {{ emp.empName | uppercase | limitTo : 10  }} </td>
+                    <td> {{ emp.empDOB | date : "dd MMM, yyyy" }}</td>
+                    <td> {{ emp.empGender }}</td>
+                    <td> {{ emp.empSalary | currency : "Rs " : 2 }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br><br><br><br>
+        <h4>Hardcoded orderBy value i.e orderBy : empSalary : true</h4>
+
+        <table>
+            <thead>
+                <th>Employee Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Salary</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat = "emp in Employee | orderBy : 'empSalary' : true" >
+            <!--<tr ng-repeat = "emp in Employee | orderBy : '-empSalary'"> -->
+                    <td> {{ emp.empName | uppercase | limitTo : 10  }} </td>
+                    <td> {{ emp.empDOB | date : "dd MMM, yyyy" }}</td>
+                    <td> {{ emp.empGender }}</td>
+                    <td> {{ emp.empSalary | currency : "Rs " : 2 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
