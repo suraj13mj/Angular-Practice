@@ -1,0 +1,49 @@
+<!-- 
+    1. ng-init directive allows us to evaluate an expression in current scope 
+    2. ng-init should only be used for aliasing special properties of ng-repeat directive (Ex: Country Example)
+    3. To initialise (Ex: Employee Example) we should do it using $scope object in Controller instead of ng-init
+-->
+
+
+<!DOCTYPE html>
+<html ng-app = "myModule">
+<head>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="Script.js"></script>
+    <link rel="stylesheet" href="Style.css"/>
+</head>
+<body ng-controller = "myController">
+    <div ng-init = "employee = [
+                        { 'empName':'Ramesh', 'empGender':'Male', 'empSalary':2059 },
+                        { 'empName':'Suresh', 'empGender':'Male', 'empSalary':1000 },
+                        { 'empName':'Lavisha', 'empGender':'Female', 'empSalary':5000 },
+                        { 'empName':'Aarti', 'empGender':'Female', 'empSalary':6300 },
+                        { 'empName':'Jayant', 'empGender':'Male', 'empSalary':7000 },
+                    ]">
+        <table>
+            <thead>
+                <th>Employee Name</th>
+                <th>Employee Salary</th>
+                <th>Employee Department</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat = "emp in employee">
+                    <td>{{ emp.empName }}</td>
+                    <td>{{ emp.empGender }}</td>
+                    <td>{{ emp.empSalary }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <br><br>
+
+        <ul ng-repeat = "country in Countries" ng-init = "parent = $index">
+            <li>{{ country.countryName }} ----- Parent Index : {{ parent }}</li>
+            <ul ng-repeat = " city in country.countryCities">
+                <li>{{ city }} ----- Child Index : {{ $index }} </li>
+            </ul>
+        </ul>
+    </div>
+</body>
+</html>

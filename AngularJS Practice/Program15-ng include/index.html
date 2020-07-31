@@ -1,0 +1,29 @@
+<div ng-include = "'layout.html'">
+    <label>Select View :</label>
+    <select ng-model = "ViewType">
+        <option value = "EmpTable.html">Table View</option>
+        <option value = "EmpList.html">List View</option>
+    </select>
+    <br><br>
+    <div ng-include = "ViewType"></div>
+</div>
+
+
+<!-- 
+    1. ng-include directive is used to embed an HTML page into another HTML page 
+    2. This technique is extremely useful when we want to reuse a specific view in multiple pages
+
+    3. The value of ng-include directive can be the name of HTML page
+    <div ng-include = "'layout.html'"></div>
+
+    4. Or it can be property on the $scope object that points to HTML page
+        $scope.HTML_Layout = "layout.html"
+
+        <div ng-include = "HTML_Layout"></div>
+
+    5. In order for ng-include to work we need to serve the this webpage i.e index.html
+        - In the Project folder open cmd line
+        - npm install http-server -g
+        - > http-server . -o
+        - Open the link served at particular port no
+-->

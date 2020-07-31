@@ -1,0 +1,39 @@
+<!-- 
+    ng-hide and ng-show directive are used to control the visibility of HTML elements
+-->
+
+<!DOCTYPE html>
+<html ng-app="module">
+    <head>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="Script.js"></script>
+        <link href="Style.css" rel="stylesheet"/>
+    </head>
+    <body ng-controller="emp_controller">
+        <input type="checkbox" ng-model = "hideSalary"/> Hide Salary1 
+        <input type="checkbox" ng-model = "maskSalary"/> Mask Salary2
+        <br><br>
+        <table>
+            <thread>
+                <th>Employee Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th ng-hide = "hideSalary">Salary1</th>
+                <!-- <th ng-show = "! hideSalary">Salary1</th> -->
+                <th ng-hide = "maskSalary">Salary2</th>
+                <th ng-show = "maskSalary">Salary2</th>
+            </thread>
+            <tbody>
+                <tr ng-repeat = "emp in Employee">
+                    <td> {{ emp.empName }} </td>
+                    <td> {{ emp.empDOB | date : "dd/MM/yyyy"}} </td>
+                    <td> {{ emp.empGender }} </td>
+                    <td ng-hide = "hideSalary"> {{ emp.empSalary | currency : "Rs " : 0 }} </td>
+                    <!-- <td ng-show = "! hideSalary"> {{ emp.empSalary | currency : "Rs " : 0 }} </td> -->
+                    <td ng-hide = "maskSalary"> {{ emp.empSalary }} </td>
+                    <td ng-show = "maskSalary"> ##### </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

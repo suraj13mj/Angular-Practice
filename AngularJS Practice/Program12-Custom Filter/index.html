@@ -1,0 +1,51 @@
+<html ng-app = "myModule">
+    <head>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="Script.js"></script>
+        <script src="Filter.js"></script>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="Style.css"/>
+    </head>
+
+    <body ng-controller = "myController">
+        <div class="container">
+            <div class="row">
+                <div class = "col-md-4">
+                    <table>
+                        <thead>
+                            <th>Employee Name</th>
+                            <th>Gender</th>
+                            <th>Salary</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat = "emp in Employees">
+                                <td>{{ emp.empName }}</td>
+                                <td>{{ emp.empGender }}</td>
+                                <td>{{ emp.empSalary }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class = "col-md-4">
+                    <p>After applying Custom gender & salary filter -></p>
+                </div>
+                <div class = "col-md-4">
+                    <table>
+                        <thead>
+                            <th>Employee Name</th>
+                            <th>Gender</th>
+                            <th>Salary</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat = "emp in Employees">
+                                <td>{{ emp.empName }}</td>
+                                <td>{{ emp.empGender | customfilter_gender }}</td>
+                                <td>{{ emp.empSalary | customfilter_salary}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

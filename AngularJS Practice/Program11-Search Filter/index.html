@@ -1,0 +1,113 @@
+<html ng-app = "module">
+    <head>
+        <script src = "node_modules/angular/angular.js"></script>
+        <script src = "Script.js"></script>
+        <link rel = "stylesheet" href="Style.css"/>
+    </head>
+    <body>
+        <div ng-controller = "myController">
+            <div>
+                ByDefault filter 'filter' i.e Search filter searches all fields <br><br>
+                Search : <input type = "text" placeholder = "Search Employee(All fields)" ng-model = "searchText1"/>
+                <br><br>
+                <table>
+                    <thead>
+                        <th>Emp No</th>
+                        <th>Employee Name</th>
+                        <th>Salary</th>
+                        <th>Department</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat = "emp in Employee | filter : searchText1">
+                            <td>{{ emp.empNo }}</td>
+                            <td>{{ emp.empName }}</td>
+                            <td>{{ emp.empSalary }}</td>
+                            <td>{{ emp.empDept }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br><br><br>
+
+            <!-- To Search only single Property we append that property name to the ng-model -->
+
+            <div>
+                Separate Search Boxes to Search different fields <br><br>
+                Search : <input type = "text" placeholder = "Search Employee Name" ng-model = "searchText2.empName"/>
+                Search : <input type = "text" placeholder = "Search Employee Dept" ng-model = "searchText2.empDept"/>
+                Search : <input type = "text" placeholder = "Search Employee No" ng-model = "searchText2.empNo"/>
+                <br><br>
+                <table>
+                    <thead>
+                        <th>Emp No</th>
+                        <th>Employee Name</th>
+                        <th>Salary</th>
+                        <th>Department</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat = "emp in Employee | filter : searchText2">
+                            <td>{{ emp.empNo }}</td>
+                            <td>{{ emp.empName }}</td>
+                            <td>{{ emp.empSalary }}</td>
+                            <td>{{ emp.empDept }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br><br><br>
+
+            <!-- We can specify another boolean option to the search filter, if the search must be exact match -->
+
+            <div>
+                We can Search fields with exact match <br><br>
+                Search : <input type = "text" placeholder = "Search Employee Name" ng-model = "searchText3.empName"/>
+                Search : <input type = "text" placeholder = "Search Employee Dept" ng-model = "searchText3.empDept"/>
+                <input type="checkbox" ng-model = "exactSearch"/>Exact Match
+                <br><br>
+                <table>
+                    <thead>
+                        <th>Emp No</th>
+                        <th>Employee Name</th>
+                        <th>Salary</th>
+                        <th>Department</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat = "emp in Employee | filter : searchText3 : exactSearch">
+                            <td>{{ emp.empNo }}</td>
+                            <td>{{ emp.empName }}</td>
+                            <td>{{ emp.empSalary }}</td>
+                            <td>{{ emp.empDept }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br><br><br>
+
+            <!-- Using Single search box to Multiple fields (Not all the fields) Ex: only Name and Dept we have to write Custom filter -->
+            <!-- If all fields are to be searched the using default filter is the best choice -->
+            <div>
+                Single Search box to search EmpName and EmpDept <br><br>
+                Search : <input type = "text" placeholder = "Search Name and Dept" ng-model = "searchText4"/>
+                <table>
+                    <thead>
+                        <th>Emp No</th>
+                        <th>Employee Name</th>
+                        <th>Salary</th>
+                        <th>Department</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat = "emp in Employee | filter : custom_search">
+                            <td>{{ emp.empNo }}</td>
+                            <td>{{ emp.empName }}</td>
+                            <td>{{ emp.empSalary }}</td>
+                            <td>{{ emp.empDept }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
