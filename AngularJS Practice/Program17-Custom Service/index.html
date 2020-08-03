@@ -1,0 +1,51 @@
+<html ng-app = "myModule">
+    <head>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="Script.js"></script>
+        <script src="ServiceString.js"></script>
+    </head>
+    <body>
+        <div ng-controller = "myController">
+            <h4>Given an unspaced String, Process String introduces spaces after Capital letters </h4>
+            <h4> Ex: HelloWorldAngularJS ---> Hello World Angular J S</h4>
+
+            <br>
+            <br>
+
+            Using Normal Function defined in Controller
+            <table>
+                <tr>
+                    <td>Input String :</td>
+                    <td><input type="text" ng-model = "input1" /></td>
+                </tr>
+                <tr>
+                    <td>Formatted String :</td>
+                    <td><input type="text" ng-model = "output1"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button ng-click = "transformString1(input1)">Process String</button></td>
+                </tr>
+            </table>
+
+            <br>
+            <br>
+
+            Using Custom service : stringService with its property processString
+            <table>
+                <tr>
+                    <td>Input String :</td>
+                    <td><input type="text" ng-model = "input2" /></td>
+                </tr>
+                <tr>
+                    <td>Formatted String :</td>
+                    <td><input type="text" ng-model = "output2"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button ng-click = "transformString2(input2)">Process String</button></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

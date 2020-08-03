@@ -1,0 +1,46 @@
+<!-- Main HTML Layout  -->
+
+<html ng-app = "myModule">
+    <head>
+        <script src = "node_modules/angular/angular.js"></script>
+        <script src = "node_modules/angular-route/angular-route.js"></script>
+        <script src = "Script.js"></script>
+        <link rel = "stylesheet" href = "Style.css"/>
+    </head>
+    <body>
+        <table>
+            <tr class = "header">
+                <td colspan = "2"><h1>Website Header</h1></td>
+            </tr>
+            <tr>
+                <td class = "links"> 
+                    <a href = "#!home">Home</a>                         <!-- #/ is tell the URL that we are navigated to a link in the same page -->
+                    <a href = "#!teams">Teams</a>
+                    <a href = "#!employees">Employees</a>
+                </td>
+                <td class = "main_content">
+                    <ng-view></ng-view>
+                </td>
+            </tr>
+            <tr class = "footer">
+                <td colspan = "2">Footer</td>
+            </tr>
+        </table>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    1. AngularJS is mainly used for building Single Page applications.
+    2. Here we will have a main layout of the html, in which we inject different views (i.e HTML Pages) based on the URL requested.
+    3. We require separate Angular routing module for injecting differenct views into the WebPage.
+
+-->
