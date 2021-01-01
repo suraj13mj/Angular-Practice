@@ -1,0 +1,34 @@
+<span>Job Details :{{ task1.job.id }} - {{ task1.job.category }} - {{ task1.job.amount }}</span>
+<!-- <span>Job Details :{{ task2.job.id }} - {{ task2.job.category }} - {{ task2.job.amount }}</span>-->           <!--Gives Error-->  
+
+<br><br>
+
+<!-- ngIf -->
+<span *ngIf="task1.job">Job Details :{{ task1.job.id }} - {{ task1.job.category }} - {{ task1.job.amount }}</span><br> 
+<span *ngIf="task2.job">Job Details :{{ task2.job.id }} - {{ task2.job.category }} - {{ task2.job.amount }}</span> 
+
+<br><br>
+
+<!-- Safe Traversal Operator -->
+<span>Job Details :{{ task1.job?.id }} - {{ task1.job?.category }} - {{ task1.job?.amount }}</span><br>
+<span>Job Details :{{ task2.job?.id }} - {{ task2.job?.category }} - {{ task2.job?.amount }}</span>
+
+<br><br>
+
+
+
+ <!-- NOTES:
+
+  1. Most of the times the data usually comes from an HTTP endpoint.
+  2. Until the data is fetched and initialised, the objects have null data
+  3. Thus if we try to access the Properties of objects that have not been initialised yet, then we get an error.
+    Ex: If we try to access id, category and amount of job before it is fetched and initialised, we get 'cannot read property' error 
+
+  4. Inorder to prevent this, we can use ngIf directive to check the condition before rendering the span. If the condition is false then that span doesn't get rendered at all. 
+
+  5. Another method that Angular provides is Safe Traversal Operator. 
+
+  6. Here we use ? before accessing the property of the object. If the property is defined or is available, then that data is displayed, otherwise not. 
+    - But here the difference is that, the span is rendered always but only the data is not displayed. 
+
+-->

@@ -1,0 +1,36 @@
+9. Example of Template Variable
+
+<br>
+
+* Method 1 (Traditional Method)
+
+Email : <input (keyup.enter)="onKeyUp($event)" />
+<br>
+<span id="email"></span>
+<br>
+
+
+* Method 2 (Angular Method)
+
+Email : <input #email (keyup.enter)="onKeyUp1(email.value)" />
+<br>
+<span id="email1"></span>
+<br>
+
+
+<!-- 
+*Template Variable / Local References
+
+1. In order to access the values entered in the view, we can it using 2 ways
+
+- Traditional Method : Here we pass the $event object and extract the value from it.
+- Angular Method : Instead of passing the $event object, Angular provides us with Template variable.
+
+2. We can declare the template variable using # i.e #variable
+3. This template variable references the HTML element where the template variable is defined
+4. we can pass its value as parameter to the method, to access it in the component.
+
+
+5. Template variable gives reference to entire HTML element including attributes, classes etc.
+6. Inorder to access it's value : templatevariable.value
+-->

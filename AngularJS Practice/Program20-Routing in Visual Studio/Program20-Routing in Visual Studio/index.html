@@ -1,0 +1,40 @@
+<!-- Main HTML Layout  -->
+
+<html ng-app="myModule">
+<head>
+    <base href="/" />
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <link rel="stylesheet" href="Style.css" />
+    <!--<base href="/" />-->
+</head>
+<body>
+    <table>
+        <tr class="header">
+            <td colspan="2"><h1>Website Header</h1></td>
+        </tr>
+        <tr>
+            <!--If html5 mode is enabled in Script.js -->
+
+            <td class="links">
+                <a href="home">Home</a>
+                <a href="teams">Teams</a>
+                <a href="employees">Employees</a>
+            </td>
+            <td class="main_content">
+
+                <ng-view></ng-view>                                 <!-- HTML Partial templates are injected here -->
+
+            </td>
+        </tr>
+        <tr class="footer">
+            <td colspan="2">Footer</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
+
+

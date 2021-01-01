@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <button class="btn btn-primary" (click)="onBtnClick()">Add a Display Component</button>
+    <hr>
+
+    <app-display-component 
+      *ngFor="let dispComp of dispComponents"
+      [compNo]="dispComp.num"
+      (compChange)="onCompChanged($event)"
+      (compDelete)="onCompDeleted($event)">
+    </app-display-component>
+  </div>
+</div>

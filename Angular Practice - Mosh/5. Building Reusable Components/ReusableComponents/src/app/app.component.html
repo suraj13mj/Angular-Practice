@@ -1,0 +1,54 @@
+<app-favorite></app-favorite>
+
+<like></like>
+<br>
+<img [src]="logoURL" (click)="onClick()"/>    <!-- logoURL and onClick() defined in app.component.html-->
+
+<!--
+  1. Here the <like> Component values are predefined in like.component.ts 
+  2. We cannot set values using Property Binding or add Behaviour using Event Binding dynamically.
+  3. Because all values are set prior to the Component is used. 
+  4. To make Like component re-usable in multiple cases, we must be able to Property Bind and Event Bind the Properties of Like Component
+
+  Ex: <like [isLiked]="post.liked" (onLike)="toggleLike()"></like>
+
+  post = {
+    liked : true,
+  }
+
+  5. Inorder to make components Reusable we must add INPUT and OUTPUT Properties
+  - We use INPUT Properties to pass values or state to the component i.e Property Binding
+  - We use OUTPUT Properties to raise events/behaviour from these components i.e Event Binding
+-->
+
+
+<!-- Input Property -->
+
+<!-- <reusable-like [isLiked]="post.like_status" [button_value]="post.like_value"></reusable-like> -->
+<reusable-like [is-liked]="post.like_status" [button-value]="post.like_value"></reusable-like>            <!-- using alias for input property -->
+
+<!-- <reusable-like [isLiked]="post1.like_status" [button_value]="post1.like_value"></reusable-like> -->
+<reusable-like [is-liked]="post1.like_status" [button-value]="post1.like_value"></reusable-like>
+
+
+<!-- 
+  1. Once we define Input Property alias then we must use them only, if we use normal fields then it gives error
+-->
+
+
+
+<!-- Output Property -->
+
+<!-- <reusable-like [is-liked]="post2.like_status" [button-value]="post2.like_value" (likeClick)="onLikeClicked()"></reusable-like> -->
+<reusable-like [is-liked]="post2.like_status" [button-value]="post2.like_value" (lclick)="onLikeClicked()"></reusable-like>
+
+
+<!--
+  1. Here we are defining 'likeClick' custom event for this particular component, whose behaviour Ex: 'onLikeClicked()' can be 
+    dynamically added in app.component.html instead of predefining it for the component in reusable-like.component.ts
+
+  2. Inorder to do this we can have declare 'likeClick' as Output Property in reusable-like.component.ts
+
+  3. lclick is an alias for likeClick output property.
+-->
+

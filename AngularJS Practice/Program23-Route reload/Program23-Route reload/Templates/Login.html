@@ -1,0 +1,20 @@
+﻿<div class="container">
+    <h2>Login to Continue</h2>
+    <br />
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username" ng-model="Username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="text" class="form-control" id="password" placeholder="Enter password" name="password" ng-model="Password">
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="login()">Login</button>
+        <button type="submit" class="btn btn-default" ng-click="clear()">Clear</button>
+
+        <br />
+        <br />
+        <span class="message">{{error}}</span>
+    </form>
+</div>

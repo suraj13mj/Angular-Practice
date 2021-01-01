@@ -1,0 +1,27 @@
+
+
+FirstName : <input type="text" appCustomDirective>
+<br>
+
+
+<!-- Suppose we want to provide the value for type of formatting, then we can declare an input field in the Directive and implement it -->
+LastName : <input type="text" appCustomDirective1 [format]="'LOWER'">
+<br>
+
+
+<!-- Suppose if there is only 1 input field, then can bind it directly to the name of the directive, by keeping the alias name of input field same as Directive name in the component -->
+City : <input type="text" [appCustomDirective2]="'UPPER'">
+
+
+
+
+<!--NOTES:
+    1. In Real world application we want to have some control over behaviour of DOM elements
+        Ex: When we fill an input field and go out of focus, it then automatically becomes Uppercase, When we fill a Phone Number it automatically formats and adds zero etc
+
+    2. If we think we can do it using Pipes (i.e filters in AngularJS), then its wrong, because we can apply pipes on already available data.
+        - i.e While displaying data from component through h1, p, span etc
+        - We cannot apply dynamically on an input field entered by the user, without storing the value entered by the user in the component field, through two way binding, then in the component convert it to Uppercase or Lowercase, which then automatically updates in the input field. 
+
+    3. There are many such scenarios where we may need to have control over the behaviour of DOM elements. Thus we use Custom Directives
+-->

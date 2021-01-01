@@ -1,0 +1,39 @@
+
+<button 
+    [style.backgroundColor]="canSave ? 'blue' : 'gray'"
+    [style.color]="canSave ? 'white' : 'black'"
+    [style.fontWeight]="canSave ? 'bold' : 'normal'"
+>
+SAVE
+</button>
+
+
+<br><br>
+
+<button
+    [ngStyle]="{
+        'backgroundColor': canSave ? 'blue' : 'gray',
+        'color': canSave ? 'white' : 'black',
+        'fontWeight': canSave ? 'bold' : 'normal'
+    }"
+>
+SUBSCRIBE
+</button>
+
+
+<!--NOTES
+
+    1. If there are multiple styles that need to be applied on a DOM element, then instead of repeating style binding for each style.  
+    2. We can list all the styles that are to be applied to the DOM element, using 'ngStyle' attribute directive. 
+
+    3. Here we Property Bind the ngStyle directive with an object containing all the styles that are to applied to the DOM element.
+    
+    4. Here we list the styles to be applied as key-value pairs.
+    5. key represents a CSS style
+    6. value represents style attribute value
+
+    7. Thus ngStyle is an attribute directive, wherein we use it to modify style attributes of existing DOM elements. 
+
+    8. The best approach would be to group the styles into a CSS class and then apply that class, but in some cases we may require where in multiple styles are to be applied directly. 
+
+-->

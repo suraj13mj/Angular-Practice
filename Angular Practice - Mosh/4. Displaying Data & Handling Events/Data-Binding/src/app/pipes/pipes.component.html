@@ -1,0 +1,33 @@
+11. Example of Pipes 
+
+<br/>
+<br/>
+1. Formatting String (uppercase, lowercase etc) <br/>
+<h4>{{ Courses.Title | uppercase | lowercase }}</h4>                   <!-- Here first uppercase pipe executes, then lowercase pipe works on the result of uppercase pipe -->
+                                                                       <!-- It is called Pipe chaining -->
+<br/>
+2. Decimal Pipe (number) <br/>
+<h4>{{ Courses.Students | number }}</h4>
+
+<br/>
+3. Decimal Pipe with No of Interger and decimal field options <br/>
+<h4>{{ Courses.Rating | number:'1.2-2' }}</h4>                          <!-- 1:No of integer places 2-2: Min and Max of Decimal places -->
+                                                                        <!-- '1.2-2' are both part of single option  -->
+
+<br/>
+4. Currency Pipe <br/>
+<h4>{{ Courses.Price | currency:'INR':'Rs ':'3.1-1' }}</h4>              <!-- 'Rs ': indicates currency symbol , '3.1-1': integer and decimal places -->
+
+<br/>
+5. Date Pipe <br/>
+<h4>{{ Courses.Release_Date | date:'longDate' }}</h4>                   <!-- Different formats are available in angular.io, datePipe -->
+
+
+<!-- 
+* Pipes 
+
+1. Pipes are used to format data.
+2. They are similar to filters in AngularJS.
+3. We do not have sortBy type filter in Angular 2 & above
+
+-->

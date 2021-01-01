@@ -1,0 +1,77 @@
+5. Example of Event Binding
+
+<br>
+<button class="btn-primary" (click)="onClick()"> Click Me..!</button>
+<br>
+<span id="btnClickMe"></span>
+<br>
+<br>
+
+
+5. Example of Passing $event parameter
+
+<br>
+<button class="btn-success" (click)="onClick1($event)"> Click Me..!</button>
+<br>
+<span id="btnClickMe1"></span>
+<br>
+<br>
+
+
+
+6. Example of Event Bubbling
+
+<div [style.background-color]="'lightblue'" (click)="onOuterDivClicked()">
+    This is outer div (Click Me)
+    <div [style.background-color]="'yellow'" (click)="onInnerDivClicked()">
+        This is inner div (Click Me) 
+            <br>
+            <button (click)="btnClick()"> Button..!</button>
+            <br>
+        End of inner div
+    </div>
+    End of outer div
+</div>
+
+<br>
+
+<span id="btn"></span><br>
+<span id="inner"></span><br>
+<span id="outer"></span>
+<br>
+
+
+
+7. Preventing Event Bubbling
+
+<div [style.background-color]="'lightblue'" (click)="onOuterDivClicked1()">
+    This is outer div (Click Me)
+    <div [style.background-color]="'yellow'" (click)="onInnerDivClicked1($event)">
+        This is inner div (Click Me) 
+            <br>
+            <button (click)="btnClick1($event)"> Button..!</button>
+            <br>
+        End of inner div
+    </div>
+    End of outer div
+</div>
+
+<br>
+
+<span id="btn1"></span><br>
+<span id="inner1"></span><br>
+<span id="outer1"></span>
+
+
+
+<!-- 
+*Event Binding
+
+1. We use Event Binding to handle the events raised by DOM elements, by binding them to the methods.
+2. Syntax :  (event_name) = "method()"
+3. In order to access the event object raised by the event, we need pass it as parameter using $event object that is known to Angular
+
+4. In the Event Bubbling example all the events bubble from inside to outside when a event is trigger from inside.
+5. In order that only innermost event is triggered, we need to handle it to prevent further bubbling.
+6. We do it using $event.stopPropagration()
+-->

@@ -1,0 +1,53 @@
+
+
+<div *ngIf = "fruits.length > 0; else noFruits">
+    Fruits are available
+</div>
+<ng-template #noFruits>
+    Fruits Not Available
+</ng-template>
+
+
+<!-- Internally Angular renders as shown below i.e it is equivalent to writing as shown below -->
+
+<ng-template [ngIf] = "fruits.length > 0">
+    <div>
+        Fruits are available
+    </div>   
+</ng-template>
+<ng-template [ngIf] = "!(fruits.length > 0)">
+    Fruits Not Available
+</ng-template>
+
+
+<!-- --------------------------------------------------- -->
+
+<div *ngIf = "fruits.length > 0;then avlFruits else noFruits1"></div>
+<ng-template #avlFruits>
+    Fruits are available
+</ng-template>
+<ng-template #noFruits1>
+    Fruits Not Available
+</ng-template>
+
+<!-- Internally Angular renders as shown below i.e it is equivalent to writing as shown below -->
+
+
+<ng-template [ngIf] = "fruits.length > 0">
+    Fruits are available
+</ng-template>
+<ng-template [ngIf] = "!(fruits.length > 0)">
+    Fruits Not Available
+</ng-template>
+
+
+<!-- -------------------------------------------------------- -->
+
+
+<!-- NOTES
+
+    1. The Leading astericsk directs the Angular to re-write the markup using <ng-template>
+    2. It then applies ngIf as property binding to the <ng-template> with the condition. 
+
+    3. We can directly code this way, but *ngIf method is more convenient. 
+-->

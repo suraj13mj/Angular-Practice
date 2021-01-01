@@ -13,13 +13,17 @@
                 <td colspan = "2"><h1>Website Header</h1></td>
             </tr>
             <tr>
+                <!--If html5 mode is not enabled in Script.js -->
+
                 <td class = "links"> 
-                    <a href = "#!home">Home</a>                         <!-- #/ is tell the URL that we are navigated to a link in the same page -->
-                    <a href = "#!teams">Teams</a>
-                    <a href = "#!employees">Employees</a>
+                    <a href = "#!home">Home</a>                     
+                    <a href = "#!teams">Teams</a>                   
+                    <a href = "#!employees">Employees</a>           
                 </td>
                 <td class = "main_content">
-                    <ng-view></ng-view>
+
+                    <ng-view></ng-view>                                 <!-- HTML Partial templates are injected here -->
+
                 </td>
             </tr>
             <tr class = "footer">
@@ -30,17 +34,26 @@
 </html>
 
 
-
-
-
-
-
-
-
-
-<!-- 
+<!--
     1. AngularJS is mainly used for building Single Page applications.
     2. Here we will have a main layout of the html, in which we inject different views (i.e HTML Pages) based on the URL requested.
     3. We require separate Angular routing module for injecting differenct views into the WebPage.
+-->
 
+<!--
+ If Html5 mode is not enabled
+ 1. #! is tell the URL that we are navigated to a link in the same page
+ 2. we get http://localhost:5050/index.html/#!home in the url
+ 3. In order to get clean url i.e /home we have to enable html5 mode
+-->
+
+<!-- 
+ Problem that arises here while serving the webpage using http-server . -o is that :
+ 1. When we reload (refresh) a page from say url : https://127.0.0.1:5050/!#home or after enabling html5 mode i.e https://https://127.0.0.1:5050/home
+ 2. The server doesn't understand that first index.html has to be loaded then Home.html view has to injected in index.html
+ 3. It tries to search a page which is configured for that path, which is none.
+
+ This can be solved by configuring the server to redirect any url request to index.html
+
+ 1. This has been done using Visual Studio in Program20-ngRoute by configuring the web.config file.
 -->

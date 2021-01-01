@@ -1,0 +1,56 @@
+
+1. Example of Property Binding
+
+<h2>{{ title }}</h2>                          <!-- String Interpolation Syntax-->
+        <!-- or -->
+<h2 textContent = "{{ title }}"></h2>         <!-- String Interpolation Syntax -->
+<!-- <h2 textContent = "title"></h2> -->      <!-- Not Valid, becoz "title" is assumed as string data -->   
+
+
+<h2 [textContent]="title"></h2>               <!-- Property Binding Syntax -->
+
+
+
+
+<img src="{{ logoUrl }}">                    <!-- String Interpolation Syntax-->
+<!-- <img src="logoUrl"> -->                 <!-- Not Valid, becoz "logoUrl" gets assumed as a string -->       
+
+<img [src]="logoUrl">                      <!-- Property Binding Syntax -->
+
+
+
+
+
+<!-- 
+Property Binding
+
+1. We are using string interpolation to bind the title and logoUrl field present in Component to View
+2. Internally, when Angular compiles the code it  translates this String interpolation into Property Binding
+
+-> Property Binding involves binding a property of a DOM element to a field/property of Component.
+-> Here textContent is a property of <h2> DOM element
+-> src is a property of <img> DOM element
+-> Both String Interpolation and Property Binding methods are same and valid.
+
+3. For dynamic values such as text  we prefer String Interpolation i.e <div> <p> <span> <h1> etc. It is easier to use
+
+4. In other cases Propery Binding syntax is easier.
+
+-> Note : Propery Binding works one way i.e from Component -> to DOM element Properties (View)
+-> Changes made in DOM element Properties are not reflected back in Component fields.
+
+
+-->
+
+<!-- 
+    <p> {{ comp_var }} </p>         // {{ comp_var }} This displays contents of comp_var on the screen, Internally it is assgined to  
+                                    // the textContent property of DOM which then displays it on the screen
+
+    <img src = "{{ comp_var }}">    // "{{ comp_var }}" This assigns contents of comp_var to the src attribute
+
+
+    textContent is not a HTML attribute, It is a DOM element Property. 
+    Since Property Binding is binding of DOM element properties with field/property of Component
+
+    <h2 textContent = "{{ title }}"></h2>     works without any error
+-->

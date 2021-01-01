@@ -1,0 +1,24 @@
+
+1. Font-Awesome Icon : <fa-icon [icon]="icon_type" [class.fa-4x]="'true'"></fa-icon>
+ 
+<br>
+<br>
+
+2. Favorite - Not-Favorite Toggle
+<button class="btn" [class.btn-success]="fav" [class.btn-danger]="!fav" (click)="onClick()"> {{ button_value }} </button>
+
+<br>
+<br>
+
+
+
+
+
+<!-- 
+
+ 1. From Bootstrap 4, Glyphicons are not supported.
+ 2. We need to use FontAwesome Icons.
+ 3. We can also download the FontAwesome module designed officially for Angular.
+ 4. Once installed using npm, we need to add the FontAwesome module in imports section of app.module.ts
+
+-->

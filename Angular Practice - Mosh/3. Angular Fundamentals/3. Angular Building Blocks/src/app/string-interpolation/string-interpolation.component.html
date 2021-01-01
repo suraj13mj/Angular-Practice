@@ -1,0 +1,32 @@
+3. Example of String Interpolation
+<h2> Team : {{ team }}</h2> <br>
+
+<h3> Captain : {{ getCaptain() }}</h3> <br>
+
+<h4> {{ "RCB is an IPL team playing for the city of Bengaluru" }}</h4> <br>
+
+<h5> Total No of Wins : {{ NoOfWins }}</h5> <br>
+
+<h6>{{ NoOfWins > 10 ? "RCB is a great Team" : "RCB is not a great team" }}</h6>
+
+
+
+
+<!-- 
+    1. For String Interpolation the output of the expression used within {{ }} must in the end output a string. 
+    
+    2. getCaptain() method returns a string;
+
+    3. <h4> tag has a value that is string.
+
+    4. But NoOfWins is a Number type, but even then the value is output by the String Interpolation without error.  
+        - Within String Interpolation anything that can be converted to string type can be used. 
+        - Number can be easily converted to string type. 
+        - Thus it works
+
+    5. We can't use multi-line expressions within a String Interpolation. 
+
+    6. We can't have block expressions like if, for etc in the String Interpolation. 
+
+    7. We can use Ternary Expression though. 
+-->

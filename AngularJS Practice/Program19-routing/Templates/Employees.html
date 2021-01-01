@@ -3,6 +3,16 @@
 
 <ul>
     <li ng-repeat = "emp in Employee"> 
-        {{ emp.Name }}
+        {{ emp.Name }}                                  
     </li>
 </ul>
+
+
+<!-- 
+    1. Here when we change emp.Name to emp.ID because of browser caching, it is not automatically reflected.
+    2. Since we are requesting the same web api, but only changing it in view, the browser assumes it to same as previous cache
+    3. Thus it shows the cached html
+
+    -> This problem is solved when we use the IIS Server in Visual Studio.
+
+-->

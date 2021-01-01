@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-5">
+        <!-- Recipes List Component -->
+        <app-recipes-list (toRecipeDetails)="onRecipePassed($event)"></app-recipes-list>
+    </div>
+    <div class="col-md-7">
+        <!-- Recipes Detail Component -->
+        <app-recipes-detail *ngIf="recipeData; else tempRecipe" [recipeInfo]="recipeData"></app-recipes-detail>
+        <ng-template #tempRecipe>
+            <p><strong>Please select a Recipe</strong></p>
+        </ng-template>
+    </div>
+</div>
+

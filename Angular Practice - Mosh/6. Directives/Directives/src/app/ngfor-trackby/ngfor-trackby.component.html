@@ -1,0 +1,44 @@
+<button (click)="onLoad()"> Load Courses</button>
+
+<ul>
+    <li *ngFor = "let course of Courses">
+        {{ course.name }}
+    </li>
+</ul>
+
+<br>
+<br>
+
+Using TrackBy feature of Angular
+
+<button (click)="onLoadTeams()"> Load Teams Tracked by Id</button>
+<ul>
+    <li *ngFor = "let team of Teams; trackBy: trackTeamsId" >                       <!-- here we are adding name of trackTeamsId method as a reference -->
+        {{ team.name }}                                                             <!-- It gets called when there is requirement of that method to be called, i.e when click event i.e onLoadTeams() is triggered -->
+    </li>                                                                           <!-- The parameter it takes is index, remaining parameters depend on our logic-->
+</ul>
+
+
+
+
+
+<!--NOTES
+    
+    1. Whenever we click on Load Courses, the Courses field in the Component is re-assigned with new array of Objects. 
+        - Same array is re-initialised. Angular assumes it as new content, thus re-renders it. 
+    2. Whenever Angular detects this Change, it re-constructs the DOM object tree that gets displayed.
+        - It re-renders that particular DOM object where the change has occured. 
+
+    3. But this can cause Performance problems if the list involves complex objects or heavy markup, as every time the change is detected Angular re-constructs the DOM tree. 
+
+    4. In Angular, the objects are bydefault tracked by their identity i.e their memory location reference. 
+    5. Even though when same objects with same content are get initialised when we click the Reload button. 
+    6. These re-initialised objects will have different memory location as to the previous objects. 
+    
+    7. Thus Angular Change Detection assumes these new initialised objects as different objects from previous becoz of their different memory reference, thus it re-constructs the DOM tree with these new objects. 
+
+    8. But we can change the way Angular tracks these objects using trackBy feature. 
+
+    9. Here we have configured for Angular to track by the Teams Id, if the Id of re-initialised object remains same then Angular doesn't re-render the DOM. 
+
+ -->

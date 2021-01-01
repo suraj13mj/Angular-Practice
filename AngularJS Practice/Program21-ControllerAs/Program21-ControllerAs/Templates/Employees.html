@@ -1,0 +1,6 @@
+﻿<span>{{empCtrl.error}}</span>
+<h1 class="text-primary">Employees of IPL</h1>
+
+<ul>
+    <li ng-repeat="emp in empCtrl.employees"><a href="employees/{{emp.ID}}">{{emp.Name}}</a></li>
+</ul>

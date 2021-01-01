@@ -1,0 +1,46 @@
+<html ng-app="myModule">
+    <head>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="Script.js"></script>
+    </head>
+    <body>
+
+        <h3>Controller using $scope object</h3>
+        <br>
+        <div ng-controller="scope_Country">
+            {{ name }}
+            <div ng-controller="scope_State">
+                {{ $parent.name }} - {{ name }}
+                <div ng-controller="scope_City">
+                    {{ $parent.$parent.name }} - {{ $parent.name }} - {{ name }}
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <h3>Controller using ControllerAs syntax</h3>
+        <br>
+        <div ng-controller="ctrlAs_Country as Country">
+            {{ Country.name }}
+            <div ng-controller="ctrlAs_State as State">
+                {{ Country.name }} - {{ State.name }}
+                <div ng-controller="ctrlAs_City as City">
+                    {{ Country.name }} - {{ State.name }} - {{ City.name }}
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+
+<!-- 
+    1. When there is nested scopes of controllers, it becomes confusing to figure out which property belongs to which controller
+    2. Using ControllerAs syntax solves this problem of confusion
+
+    - ControllerAs vs $scope
+    1. ControllerAs syntax makes our code more readable
+    2. When we use ControllerAs, angular internally uses $scope object itself
+    3. ctrlAs_Country as Country -> here Country holds the reference to the controller, this Country reference is internally attached to $scope
+-->

@@ -1,0 +1,23 @@
+4. Example of ngFor Directive
+
+<h3> {{ tournament }}</h3>
+
+<ul>
+    <li *ngFor = "let t of teams"> {{ t }}</li>
+</ul>
+
+5. Example of Services
+
+<h3> Foreign Players of RCB</h3>
+<ul>
+    <li *ngFor = "let p of players"> {{ p }}</li>
+</ul>
+
+
+<!-- 
+1. We use directives to manipulate DOM elements
+2. We can use it to add DOM element, remove or change it's class or style so on.
+3. ngFor is a directive
+4. We use directives similar to HTML element attribute such src, alt etc
+5. Whenever a directive modifies the structure of DOM, we need to prefix it with *
+-->

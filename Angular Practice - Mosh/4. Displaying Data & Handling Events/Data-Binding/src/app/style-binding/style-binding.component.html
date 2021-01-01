@@ -1,0 +1,17 @@
+4. Example of Style Binding 
+
+
+<div [style.background-color] = "isTrue ? 'green' : 'red'">
+    <p [style.font-family] = "'ariel'" [style.font-size.px] = "size" >{{ display_text }}</p>
+</div>
+
+
+<!-- 
+*Style Binding
+
+1. Style Binding is a variation of Property Binding
+2. Here we can dynamically change the styles of the DOM element, through inline styles added to DOM elements. 
+3. Here we use [style.stylename.unit] = "value"
+4. unit is optional Ex: px, em, % etc
+5. Whenever we are assigning values directly we use single quotes within double quotes.
+-->

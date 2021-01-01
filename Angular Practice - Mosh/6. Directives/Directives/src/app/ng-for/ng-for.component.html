@@ -1,0 +1,39 @@
+<ul>
+    <li *ngFor="let course of Courses"> 
+        {{ course.id }} - {{ course.name }}
+    </li>
+</ul>
+
+<!-- ------------------------------------------------------------------- -->
+
+<!-- index value exported by ngFor -->
+
+<ul>
+    <li *ngFor="let course of Courses; index as i">                 <!-- we need to alias the exported values before using them-->
+        {{ i }} - {{ course.id}} - {{ course.name }}
+    </li>
+</ul>
+
+<!-- ------------------------------------------------------------------- -->
+
+<!-- even value exported by ngFor -->
+
+<ul>
+    <li *ngFor="let course of Courses; index as i, even as isEven">             <!-- Here even is boolean value based on index being even or odd -->
+        {{ i }} - {{ course.name}} - <span *ngIf="isEven"> EVEN Row</span>
+    </li>
+</ul>
+
+
+<!-- ------------------------------------------------------------------- -->
+
+<!--NOTES
+
+    1. ngFor directive is used to render a list of objects, items etc. 
+
+    2. ngFor exports certain values, which can be used to implement certain features. 
+    3. Some of the values exported by ngFor are index, even etc
+
+    4. We can check all the values exported by ngFor in Angular.io.
+    5. Actual name of ngFor directive is ngForOf, even though we use ngFor to implement it. 
+-->

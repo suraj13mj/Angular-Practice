@@ -1,0 +1,98 @@
+1. Passing Event Data (boolean value) 
+<br><br>
+<passing-event-data [is-liked]="post.like_status" [val-liked]="post.like_value" (likeClick)="onLikeClicked($event)"></passing-event-data>
+
+<!-- Here $event specifies a boolean value being emitted by likeClick custom event -->
+<!-- We handle this 'likeClick' custom event with 'onLikeClicked' event in app.component.ts -->
+<br><br>
+
+2. Passing Event Data (Object)
+<br><br>
+<passing-event-data [is-liked]="post1.like_status" [val-liked]="post1.like_value" (likeClick)="onLikeClicked1($event)"></passing-event-data>
+
+<!-- Here $event specifies a JS Object of type LikeReturnType being emitted/passed -->
+
+
+<br><br>
+<app-styles></app-styles>
+
+
+
+
+<br><br>
+
+4. Shadow DOM <br>
+<share></share>
+<br><br>
+<subscribe></subscribe>
+<br><br>
+<comment></comment>
+
+
+<br><br>
+
+5. Bootstrap Panel using Property Binding
+<br><br>
+<bootstrap-panel [heading]='panel.Heading' [body]="panel.Body" ></bootstrap-panel>
+
+
+<!-- 
+    1. Instead of using Property binding (i.e by making heading and body input properties) to add content to the heading and body
+    2. We can make use of <ng-content> element, so that we can directly add the markup with much easier syntax
+-->
+
+
+<br><br>
+
+
+6. Bootstrap Panel using ngContent 
+<br><br>
+<app-ng-content-panel>
+    <div class="heading">Welcome to Angular Tutorials</div>
+    <div class="body">
+        <h3>Fundamental Building blocks of Angular</h3>
+        <p>
+            1. Components <br>
+            2. Services <br>
+            3. Directives <br>
+        </p>
+    </div>
+</app-ng-content-panel>
+
+<!-- 
+    1. It easier to use Property Binding if we want to set certain values to the Component variables. 
+    2. But if we want the user of the component to add custom values i.e Complex HTML markup, then it is easier to use ng-content. 
+-->
+
+<br><br>
+
+
+
+7. Bootstrap Panel using ngContent and ng-container
+<br><br>
+<app-ng-container-panel>
+    <ng-container class="banner"> Welcome to German Language Tutorials</ng-container>
+    <ng-container class="content">
+        1. Dog -> Hund <br>
+        2. Cat -> Katze <br>
+        3. Elephant -> Elefant <br>
+        4. Owl -> Eule <br>
+        5. Mouse -> Maus <br>
+    </ng-container>
+</app-ng-container-panel>
+
+
+
+<!-- 
+    1. When we use <div> and apply the ngContent selector, the entire <div> element replaces the <ng-content>
+    
+        <div class="heading">Welcome to Angular Tutorials</div>  ->  <ng-content select=".heading"></ng-content>
+
+    2. Suppose if we want only the content i.e Welcome to Angular Tutorials to be replaced with <ng-content>, without the additional div
+        - We can use another tag i.e <ng-container>
+
+    3. Using <ng-container> only content present within it is replaced with the <ng-content>
+        
+    4. This prevents the additional unwanted markup from being added. 
+    
+-->

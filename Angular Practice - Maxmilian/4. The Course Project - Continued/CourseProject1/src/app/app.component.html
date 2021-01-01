@@ -1,0 +1,13 @@
+<app-header (selectedTab)="onTabSelected($event)"></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Recipes Component -->
+      <app-recipes *ngIf="selectedTab === 'recipe'"></app-recipes>
+
+      <!-- Shopping List Component -->
+      <app-shopping-list *ngIf="selectedTab === 'shopping'"></app-shopping-list>
+    </div>
+  </div>
+</div>

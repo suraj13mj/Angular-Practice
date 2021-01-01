@@ -1,0 +1,25 @@
+﻿<span>{{empDetailsCtrl.error}}</span>
+<h1 class="text-warning">Employee {{empDetailsCtrl.employee.ID}} Details</h1>
+
+<table class="table-bordered table-striped" style="border-collapse: collapse; padding: 5px;">
+    <thead>
+        <tr>
+            <th>Employee No</th>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{empDetailsCtrl.employee.ID}}</td>
+            <td>{{empDetailsCtrl.employee.Name}}</td>
+            <td>{{empDetailsCtrl.employee.Gender}}</td>
+            <td>{{empDetailsCtrl.employee.Salary}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+<a href="employees">Go back to Employees List</a>

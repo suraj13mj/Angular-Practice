@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program23-Route reload", "Program23-Route reload\Program23-Route reload.csproj", "{768ECFA8-1BBB-4FE0-8305-65859A301882}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{768ECFA8-1BBB-4FE0-8305-65859A301882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{768ECFA8-1BBB-4FE0-8305-65859A301882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{768ECFA8-1BBB-4FE0-8305-65859A301882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{768ECFA8-1BBB-4FE0-8305-65859A301882}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE77F11E-0DFB-4835-803C-3EA8E99E920C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- MainInputComponent -->
+      <app-main-input
+        (server-created)="onServerCreated($event)"
+        (blueprint-created)="onBluePrintCreated($event)"
+      ></app-main-input>
+      <!---->
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- ServerComponent -->
+      <app-serve-component 
+        *ngFor="let servElement of serverElements"
+        [elem]="servElement">
+      </app-serve-component>
+      <!---->
+    </div>
+  </div>
+
+  <!-- ViewChildComponent -->
+  <app-view-child>
+    <div>
+      <h2 #header> Hello Welcome to the Example of View-Child and Content Child </h2><br>
+  </div>
+  </app-view-child>
+  <!-- -->
+</div>

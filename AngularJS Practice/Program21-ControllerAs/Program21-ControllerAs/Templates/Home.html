@@ -1,0 +1,36 @@
+﻿<h1 class="text-danger"> {{homeCtrl.message}}</h1>
+
+<div>
+    <p>1. Till Now we have used $scope object to make data available in the view.</p>
+    <p>2. Instead we can use 'this' keyword to attach model to the view in the controller instead of $scope</p>
+    <p>3. Then access that property using Controller alias in the view </p>
+
+    <p>
+
+    </p>
+
+    <div ng-controller="thisDemoController as thisDemo">
+        <h1> {{ thisDemo.message }} </h1>
+    </div>
+</div>
+
+
+<!--
+
+Script.js
+_________
+app.controller("myController" ,function(){
+    this.message = "Hello World";
+})
+
+
+
+index.html
+__________
+
+<div ng-controller="myController as myCtrl">
+    {{ myCtrl.message }}
+</div>
+
+
+-->

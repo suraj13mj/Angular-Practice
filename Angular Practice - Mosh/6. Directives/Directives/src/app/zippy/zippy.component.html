@@ -1,0 +1,30 @@
+<div class="zippy-comp">
+    <div 
+        class="zippy-banner"
+        [class.zippy-expanded]="isExpanded"
+        (click)="toggleZippy()"
+     > 
+        <h2>{{ title }}</h2>
+    </div>
+    <div *ngIf="isExpanded" class="zippy-body">
+        <ng-content></ng-content>
+    </div>
+</div>
+
+
+<!-- OR -->
+
+<!-- <div class="zippy-comp">
+    <div 
+        [ngClass]="{
+            'zippy-banner': true,
+            'zippy-expanded': isExpanded
+        }"
+        (click)="toggleZippy()"
+     > 
+        <h2>{{ title }}</h2>
+    </div>
+    <div *ngIf="isExpanded" class="zippy-body">
+        <ng-content></ng-content>
+    </div>
+</div> -->

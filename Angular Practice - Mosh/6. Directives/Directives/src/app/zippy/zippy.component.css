@@ -1,0 +1,21 @@
+
+.zippy-comp {
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.zippy-banner {
+    font-weight: bold;
+    padding: 20px;
+    color: blue;
+    cursor: pointer;
+}
+
+.zippy-body {
+    padding: 20px;
+    color : green;
+}
+
+.zippy-expanded {
+    background: burlywood;
+}

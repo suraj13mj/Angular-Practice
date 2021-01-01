@@ -1,0 +1,11 @@
+<div >
+    <input [(ngModel)]="serverName" type="text">
+    <button class="btn-primary" (click)="onBtnClick()">Add New Server</button> <br>
+    <p 
+    *ngFor="let serv of servers"
+    [ngStyle]="{ 'background-color': getBackgroundColor()}"
+    [ngClass]="{ foreColor: serverStatus === 'online' ? true : false}" 
+    > 
+    {{ serverMsg }} 
+    </p>
+</div>

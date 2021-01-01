@@ -1,0 +1,9 @@
+﻿<h1> List of Employees </h1>
+
+<ul>
+    <li ng-repeat="emp in empCtrl.employees"> {{ emp.Name }}</li>
+</ul>
+
+<br />
+
+<button ng-click="empCtrl.reloadEmployee()">Reload Employees</button>

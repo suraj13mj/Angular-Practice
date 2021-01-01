@@ -1,0 +1,6 @@
+Angular Building Blocks
+
+1. Components
+2. Templates
+3. Directives
+4. Services

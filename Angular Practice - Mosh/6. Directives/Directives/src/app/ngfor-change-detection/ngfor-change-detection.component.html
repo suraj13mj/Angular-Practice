@@ -1,0 +1,22 @@
+<button (click)="onAddTeam()">Add Team</button>
+
+<ul>
+    <li *ngFor="let team of Teams">
+        {{ team.id }} - {{ team.name }} - <button (click)="onRemoveTeam(team)"> Delete </button> - <button (click)="onUpdateTeam(team)"> Update</button>
+    </li>
+</ul>
+
+
+
+<!--NOTES
+
+    1. Angular performs the Change detection whenever there a 
+        1. DOM event
+        2. Ajax Requests
+        3. Timers
+    
+    2. It identifies where the changes in the DOM have happened and then re-constructs the DOM tree for the updated content.
+        - It re-renders that particular DOM object where the change has occured. 
+
+    
+-->

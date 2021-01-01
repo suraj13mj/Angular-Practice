@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <ng-content select=".heading"></ng-content>
+    </div>
+    <div class="panel-body">
+        <ng-content select=".body"></ng-content>
+    </div>
+</div>
+
+
+<!-- 
+    1. Here using <ng-content> we can create injection points so that user of the component can add custom content (markup). 
+    2. We provide for these ng-content separate css selector ids/class etc, so that it can be differentiated while using the component
+    3. Whichever element uses the respective selector, that element replaces that ng-content defined here. 
+
+    4. If there is only 1 ng-content then there is no need of a selector. 
+
+    <div class="panel">
+        <div class="panel-body">
+            <ng-content></ng-content>
+        </div>
+    <div>
+
+    ----------------------
+
+    <app-ng-content-panel> 
+        Royal Challengers Bangalore         //This replaces the ng-content
+    <app-ng-content-panel> 
+
+        OR
+
+    <app-ng-content-panel> 
+        <h1> Bangalore </h1><br>            //This markup is replaces the ng-content
+        <h2> Karnataka </h2>
+    <app-ng-content-panel>
+
+
+    
+        
+-->

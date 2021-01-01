@@ -1,0 +1,27 @@
+8. Example of Event Filtering
+<br>
+
+* Method 1 (Traditional Method )
+<br>
+Enter your Name and Press Enter: <input (keyup)="onKeyUp($event)" />               <!-- Here onKeyUp() is invoked after each key press -->
+<br>                                                                               <!-- But the onKeyUp() checks whether Enter is pressed or not -->
+<span id="txt"></span>
+
+<br>
+<br>
+
+*Method 2 (Angular Method)
+<br>
+Enter your Name and Press Enter: <input (keyup.enter)="onKeyUp1($event)" />        <!-- Here onKeyUp1() is invoked when Enter is pressed -->
+<br>
+<span id="txt1"></span>
+
+
+
+<!-- 
+Event Filtering
+
+1. Event Filtering allows us to handle events after some condition is satisfied
+2. In Traditional method using JS we handle it in the method handling the event.
+3. Angular provides us with special syntax to handle such conditions in the Event Binding Syntax.
+-->

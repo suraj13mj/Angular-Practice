@@ -1,0 +1,36 @@
+<div>
+    <ul class="nav nav-tabs">
+        <li [class.active] = "currentTab === 'list'"  (click) = "currentTab = 'list'"> <a> List View </a> </li>
+        <li [class.active] = "currentTab === 'map'"  (click) = "currentTab = 'map'"> <a> Map View </a> </li>
+        <li [class.active] = "currentTab === 'track'"  (click) = "currentTab = 'track'"> <a> Track View </a> </li>
+    </ul>
+
+    <!--1. Here we make only that tab active whose values match the currentTab using Class Binding
+        2. Using Event Binding we dynamically set the currentTab value to that Tab, where click is triggered
+    -->
+    <br>
+
+    <div [ngSwitch]="currentTab">
+        <div *ngSwitchCase = "'list'"> List View Content </div>
+        <div *ngSwitchCase = "'map'"> Map View Content </div>
+        <div *ngSwitchCase = "'track'"> Track View Content</div>
+        <div *ngSwitchDefault> Other Content</div>
+    </div>
+</div>
+
+
+
+
+
+<!--  
+    1. We use ngSwitchCase when there are more than 2 conditions or choices
+    2. ngIf works if the outcomes are truth or falsy, then enables that particular div based on the condition
+    3. With ngSwitchCase we can use it for multiple cases
+
+    4. Angular provides with another attribute ngSwitch which is not present in the DOM object. 
+        - We can Property bind ngSwitch attribute for any DOM object with an expression.   Ex: <div [ngSwitch]="currentTab">
+
+    5. Based on this we can use the *ngSwitchCase directive, which enables only that div which matches the value present in the currentTab field. 
+
+    6. If none of the values match, we can have default case using *ngSwitchDefault
+ -->

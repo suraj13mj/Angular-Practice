@@ -1,0 +1,38 @@
+
+<button 
+    class="btn" 
+    [class.btn-success]="liked" 
+    [class.btn-danger]="!liked" 
+    (click)="onClick()"> 
+    {{ button_value }}
+</button>
+
+<!--NOTES
+
+    1. If there are multiple classes that need to be applied on a DOM element, then instead of repeating class binding for each css class.  
+    2. We can list all the classes that are to be applied to the DOM element, using 'ngClass' attribute directive. 
+
+    3. Here we Property Bind the ngClass directive with an object containing all the classes that are to applied to the DOM element.
+    
+    4. Here we list the classes to be applied as key-value pairs.
+    5. key represents a CSS class
+    6. value represents if that class should be applied or not (boolean value)
+
+    7. Thus ngClass is an attribute directive, wherein we use it to modify class attributes of existing DOM elements. 
+
+-->
+
+
+<br><br>
+
+
+<button
+    [ngClass]="{
+        'btn': true,
+        'btn-success': liked,
+        'btn-danger': !liked
+    }">
+    {{button_value}}
+</button>
+
+<!-- <button [ngClass]="{'btn': true, 'btn-success': liked, 'btn-danger': !liked }"> {{button_value}} </button> -->

@@ -1,0 +1,40 @@
+<div hidden>
+    Books are available
+</div>
+
+<!-- ------------------------------------------------ -->
+
+<div [hidden] = "books.length == 0">
+    Books are available for sale
+</div>
+<div [hidden] = "books.length > 0">
+    Books are not available for sale
+</div>
+
+
+<!-- ------------------------------------------------ -->
+
+
+
+
+
+<!--NOTES
+    
+    1. hidden is attribute in HTML, that hides that particular element from displaying
+    2. This hidden attribute in HTML also exists as Property of DOM object
+
+    3. We can use it to Property bind with some expression to hide underlying DOM object from displaying. 
+
+    Difference between ngIf and hidden
+        1. The main difference between ngIf and hidden is that, ngIf loads only 1 of the 2 divs that satify the condition on to the DOM and that div is displayed. 
+
+        2. But with hidden attribute, both the divs are loaded on to the DOM, but only the div that satisfies the condition is displayed and other div has hidden attribute enabled. 
+
+    4. Whenever the DOM tree is large with huge number of elements, then it's best to use ngIf becoz these elements take up significant amt of memory and resources, thus using ngIf can prevent this. 
+        - Also if we use hidden property for certain elements, which get hidden, even for these hidden elements Angular performs the change detection to check for changes, even though they are not displayed, which might cause performance problems. 
+
+    5. But in some cases, building huge DOM trees using ngIf at every stages can be become costly as computation is required for each DOM element to get displayed. Thus if using ngIf to construct DOM trees is costly computationally then we simply use hidden. 
+
+    6. Generally for small DOM trees we use hidden property
+    7. For large DOM trees which are not costly we use ngIf
+ -->

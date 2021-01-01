@@ -1,0 +1,45 @@
+10. Example of Two Way Binding
+
+<br>
+
+* Method 1 (Unconventional Method)
+
+<br>
+<input [value]="email" (keyup)="email = $event.target.value"/>        <!-- We are assigning new value to the email field present in the component, that is accessible in the view, when keyup event is occured, with the new value entered by the user in the input field -->
+<br>
+<span [textContent]="email"></span>
+
+<br>
+<br>
+
+* Method 2 (Angular Method)
+
+<br>
+<input [(ngModel)]="username"/>
+<br>
+<span [textContent]="username"></span>
+
+
+
+<!-- 
+    1. In Property Binding we bind data present in Component to the View.
+    2. Using Template Variables OR by event binding (jugaad) we can access data of the View in the Component.
+
+    3. Two way Binding allows to us to bind the data from component to the view and View to the Component. i.e Two ways
+    4. Changes made in component are reflected in the view and Changes made in view are updated in the Component data.
+
+    - There are two ways to achieve two way binding
+        1. Conventional Method : 
+            - Here we use Property binding for binding Component to the View.
+            - And Combination of Event Binding and $event to bind View to the Component.
+            
+            - This method is not preferred becoz it involves passing parameters which is not according to OOPs.
+            - Its also complex.
+
+        2. Angular Method i.e Two-way Binding using ngModel
+            - Here Angular provides a syntax  [(ngModel)]="variable" for two way binding
+            - ngModel is a Angular Directive and not the property of input fields.
+            - ngModel directive helps achieve Two-way Binding.
+
+            - ngModel directive is present in FormsModule, which must be added to the app.module.ts - imports field
+-->

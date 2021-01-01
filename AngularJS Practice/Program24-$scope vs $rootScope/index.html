@@ -1,0 +1,36 @@
+<html ng-app = "myModule">
+    <head>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="Script.js"></script>
+    </head>
+    <body>
+
+        <h3>Red Controller Div</h3><br>
+        <div ng-controller = "redColorController">
+            Red Controller Color : 
+            <p style="color:red";>{{ redColor }}</p>
+            <br>
+            Root Controller Color : 
+            <p style="color:brown";>{{ rootColor }}</p>
+            <br>
+            Green Controller Color : 
+            <p style="color: green";>{{ greenColor }}</p>
+            <span style="color: green"; ng-show = "greenColor == undefined">greenColor is undefined</span>
+        </div>
+
+        <br>
+
+        <h3>Green Controller Div</h3><br>
+        <div ng-controller = "greenColorController">
+            Green Controller Color : 
+            <p style="color: green";>{{ greenColor }}</p>
+            <br>
+            Root Controller Color : 
+            <p style="color:brown";>{{ rootColor }}</p>
+            <br>
+            Red Controller Color : 
+            <p style="color:red";>{{ redColor }}</p>
+            <span style="color: red"; ng-show = "redColor == undefined">redColor is undefined</span>
+        </div>
+    </body>
+</html>

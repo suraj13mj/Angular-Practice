@@ -1,10 +1,11 @@
 
 var app = angular
-                .module("myModule", ["ngRoute"])                    //routing functionality are present in ngRoute module
+                .module("myModule", ["ngRoute"])                            //routing functionality are present in ngRoute module
                 .config(function ($routeProvider){
                     $routeProvider
                         .when("/", {
-                            templateUrl : "Templates/Home.html"
+                            templateUrl : "Templates/Home.html",
+                            controller : "homeController"
                         })
                         .when("/home", {
                             templateUrl : "Templates/Home.html",
@@ -17,9 +18,6 @@ var app = angular
                         .when("/employees", {
                             templateUrl : "Templates/Employees.html",
                             controller : "employeesController"
-                        })
-                        .otherwise({
-                            templateUrl : "Templates/Home.html"
                         })
                 })
                 .controller("homeController", function($scope){
@@ -35,3 +33,4 @@ var app = angular
                              $scope.Employee = response.data;
                          })
                 })
+

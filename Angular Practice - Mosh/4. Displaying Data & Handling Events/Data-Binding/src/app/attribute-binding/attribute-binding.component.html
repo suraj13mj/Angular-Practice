@@ -1,0 +1,63 @@
+2. Example of Attribute Binding
+
+<!--
+<table>
+    <tr [rowspan]="tbl_rowspan">                    //This gives error saying : rowspan & colspan are not known propery of td
+        <td [colspan]="tbl_colspan"></td>
+    </tr>
+</table>
+-->
+
+<!-- 
+    1. DOM is a tree of objects such html head body....created in memory.
+    2. HTML is markup language used to create this DOM.
+    3. There are some attributes/elements defined in HTML that are not present in DOM.  Ex: rowspan colspan 
+    4. There are some objects in DOM that have no representation in HTML       Ex: textContent of h1
+
+    -> rowspan and colspan are not present in DOM object tree.
+    -> Since Property Binding binds to the DOM objects, it gives error.
+
+    -> In order to solve this we use Attribute Binding 
+    -> Attribute Binding binds fields/properties of Component to the attribute/property of HTML Markup.
+    -> Attribute Binding is a variation of Property Binding
+
+-->
+
+<table class="table table-bordered">
+    <tr [attr.rowspan]="tbl_rowspan">
+        <td [attr.colspan]="tbl_colspan"> Table </td>
+    </tr>
+</table>
+
+<button class="btn btn-primary"> Adding Bootstrap</button>
+
+
+
+<!--
+ Adding Bootstrap : "npm install bootstrap --save"
+
+ 1. --save flag adds the bootstrap as an dependency in package.json
+ 2. Whenever we add Project to Source control, node modules are not uploaded as they are large in size.
+ 3. Thus we need to list all dependencies in package.json
+ 4. So that Users downloading the Project can install all dependencies using "npm install"
+
+ "bootstrap": "^4.5.2"
+
+ Here,
+ 4 is major version number
+ 5 is minor version number
+ 2 is the patch number
+ ^ symbol specifies that we can use any latest version of bootstrap major version 4 i.e 4.6 4.7 4.9 etc
+
+ - We can't use version major version 3 or 5
+
+
+ 5. Next we import bootstrap to styles.css, the bootstrap classes can then be used in all components as it is applied globally.
+ 6. Or we can specify bootstrap usage in angular.json file
+
+ "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
+            ]
+    
+-->

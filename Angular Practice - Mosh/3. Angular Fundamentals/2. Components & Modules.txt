@@ -1,0 +1,44 @@
+* Components
+
+1. Components are the basic building blocks of Angular Apps.
+
+2. A Component encapsulates the "Data", "Template (View)" and the "Logic" (Logic related only view / presentation).
+
+3. A Website may have only a single component for the entire application.
+
+4. Or may it may be divided into different components such as
+    - Navigation Bar Component
+    - Side Bar Component
+    - Content Page Component so on.
+
+5. Further the Content Page Component can consist smaller sub components such as
+    - Course Header Component
+    - Course Description Component
+    - Table of Contents Component
+    - Course Rating Component
+    - Comment Section Component
+    - Footer Component
+
+- Each of these components are individual components that can be reused in the same application or entirely in separate application.
+
+6. Angular is based on Component based Architecture. Each component in Angular Loosely Coupled (completely independent).
+
+7. The Components in Angular are tree structured, with root being the App Component.
+    - This App Component has further sub trees of user defined components such as Nav Bar Component, Side Bar Component and Content Page Components.
+
+
+
+* Modules
+
+1. Modules in Angular are the containers for related components.
+
+2. When an application grows with many components, we can group the similar components into Modules.
+
+3. An Simple application can have only one Module.
+
+4. Complex Application can have many modules, with each module focussing a particular aspect.
+    - Course Module
+    - Instructor Module
+    - Messaging Module
+    - Admin Module
+    - Analytics Module

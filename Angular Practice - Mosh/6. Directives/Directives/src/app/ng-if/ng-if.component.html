@@ -1,0 +1,59 @@
+<!-- Prior to Angular 4, we used ngIf for all the blocks to check the condition -->
+<div *ngIf = "courses.length > 0">                  
+    List of Courses
+</div>
+<div *ngIf = "courses.length == 0">
+    No Courses Yet..!
+</div>
+<!-- --------------------------------------------------------------- -->
+
+<!-- In Angular 4 onwards we can use conditions similar to If..else syntax -->
+
+<div *ngIf = "courses.length > 0; else noCourses">              
+    List of Courses
+</div>
+<ng-template #noCourses>
+    No Courses Yet
+</ng-template>
+
+<!-- 1. If condition is true then <div> is displayed, else <ng-template> is displayed 
+     2. We need to define a template variable for ng-template and reference it in the else    
+-->
+
+
+<!-- --------------------------------------------------------------- -->
+
+<!-- Below is much cleaner syntax -->
+
+<div *ngIf = "areCoursesAvailable() ; then listOfCourses else emptyCourses"></div>
+<ng-template #listOfCourses>
+    List Of Courses
+</ng-template>
+<ng-template #emptyCourses>
+    No Courses Yet...!
+</ng-template>
+
+
+<!-- 1. Here we define separate ng-template for both the block and reference it based on condition from the div
+     2. areCoursesAvailable() method is defined in the Component 
+-->
+
+
+
+<!-- --------------------------------------------------------------- -->
+
+
+<!--NOTES
+    
+    1. We use Directives to modify the DOM
+    2. ngIf ngSwitchCase, ngFor, ngClass, ngStyle are the Directives
+
+    3. There are 2 types of Directives 1. Structural Directives 2. Attribute  Directives
+        1. Structural Directives (ngIf, ngSwitchCase,ngFor) : Modify the structure of DOM 
+        2. Attribute Directive (ngClass, ngStyle) : Modify the attributes of DOM elements
+
+    4. We use Directives similar to the HTML Attribute (Ex: src="hello.jpg")
+
+    5. Since Structural Directives modify the Structure of DOM, we need to prefix it with an * (asterisk)
+
+-->
