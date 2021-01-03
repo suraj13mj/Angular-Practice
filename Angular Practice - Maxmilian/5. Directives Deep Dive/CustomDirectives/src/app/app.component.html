@@ -1,0 +1,68 @@
+<div class="containter">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 appBasicHighlight> Hello, This a Demo of BasicHighlight Custom Directive</h3>
+      
+      <br>
+
+      <h3 appBetterHighlight> Hello, This a Demo of Better Highlight Custom Directive using Renderer2</h3>
+
+      <br>
+
+      <h1 appHoverHighlight> Hello, Hover Over this h1 to see backgroundColor changed.</h1>
+
+      <br>
+
+      <h1 appBetterHoverHighlight> Hello, Hover Over this h1, This is Better, done using HostBinding</h1>
+
+      <br>
+
+      <h1 appCustomHighlight [defaultColor]="'grey'" [highlightColor]="'brown'"> Ex1: Hello, This is Custom Highlight, we can pass colors to the Directive</h1><br>
+
+      <!-- OR -->
+
+      <h1 appCustomHighlight defaultColor="grey" highlightColor="chocolate"> Ex2: Hello, This is Custom Highlight, we can pass colors to the Directive</h1>
+
+      <!-- ------------------------------------------------------------------------------------ -->
+      <br>
+
+      <h3>This is an Example of Custom Structural Directive i.e reverseIf : Works opposite of what If works</h3>
+      
+      <div *reverseIf="true">
+        <p style="color: red"> Value is true -> reverseIf does not displays it </p>
+      </div>
+
+      <div *reverseIf="false">
+        <p style="color: red"> Value is false -> reverseIf displays it </p>
+      </div>
+
+      <div *ngFor="let num of Numbers">
+        <li *reverseIf="num%2==0"> {{ num }}</li>       <!-- Instead it displays Odd Numbers bcox of reverseIf-->
+      </div>
+
+      <br>
+
+      <h3>Example of ngSwitch</h3>
+      <div [ngSwitch]="keyValue">
+        <li *ngSwitchCase="10"> Value is 10</li>
+        <li *ngSwitchCase="100">Value is 100</li>
+        <li *ngSwitchCase="1000">Value is 1000</li>
+        <li *ngSwitchDefault> Default Value</li>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--NOTES
+
+  1. <h1 appCustomHighlight defaultColor="grey" highlightColor="chocolate"> HELLLLLLLLO </h1>
+
+    - We can bind to Input Properties, without using [] when the input is of type string
+    - We directly use "value" instead of "'value'", when Input Properties are assigned without []
+
+    [property]="'value'"  -> property="value"
+
+  * This is true for all the Property Binding.
+  
+  -->
