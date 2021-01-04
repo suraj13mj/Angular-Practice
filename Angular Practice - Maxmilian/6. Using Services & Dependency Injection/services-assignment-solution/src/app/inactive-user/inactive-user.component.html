@@ -1,0 +1,9 @@
+<h4>In-active Users</h4>
+<p>No of In-active Transitions: {{ counter.inActiveTransitions }}</p>
+<div class="row">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let user of users; index as i">
+            {{ user }} | <a href="#" (click)="toActive(i)"> Make Active</a>
+        </li>
+    </ul>
+</div>

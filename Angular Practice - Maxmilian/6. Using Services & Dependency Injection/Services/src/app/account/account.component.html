@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-xs-12 col-md-5 col-md-offset-2">
+        <div>
+            <h5>{{account.name}}</h5>
+            <hr>
+            <div class="form-group">
+                <button class="btn" (click)="onSet('active')" 
+                    [ngClass]="{
+                        'btn-primary': account.status === 'active'
+                    }">
+                    Active
+                </button>
+                <button class="btn" (click)="onSet('inactive')"
+                    [ngClass]="{
+                        'btn-primary': account.status === 'inactive'
+                    }">
+                    Inactive
+                </button>
+                <button class="btn" (click)="onSet('hidden')"
+                [ngClass]="{
+                        'btn-primary': account.status === 'hidden'
+                    }">
+                    Hidden
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
