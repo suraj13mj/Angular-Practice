@@ -5,7 +5,10 @@
     </div>
     <div class="col-md-7">
         <!-- Recipes Detail Component -->
-        <app-recipes-detail></app-recipes-detail>
+        <app-recipes-detail *ngIf="recipeInfo; else tempRecipe" [recipeInfo]="recipeInfo"></app-recipes-detail>
+        <ng-template #tempRecipe>
+            <p><strong>Please select a Recipe</strong></p>
+        </ng-template>
     </div>
 </div>
 
