@@ -1,6 +1,8 @@
-import { EventEmitter, Output } from "@angular/core";
+import { EventEmitter, Injectable, Output } from "@angular/core";
 import { Ingredient } from "../shared/ingredient.model";
 
+
+@Injectable()
 export class ShoppingListService {
     @Output() updatedIngredientList = new EventEmitter<Ingredient[]>();
 
@@ -14,9 +16,22 @@ export class ShoppingListService {
         return this.ingredientList.slice();
     }
     
-    addIngredient(name: string, qty: number) {
-        this.ingredientList.push(new Ingredient(name, qty));
+    addIngredient(ingredient: Ingredient) {
+        this.ingredientList.push(ingredient);
         this.updatedIngredientList.emit(this.ingredientList.slice());
+    }
+
+    addIngredients(ingredients: Ingredient[]) {
+        /* Here, for each iteration, a updatedIngredientList is emitted
+        for (let ingredient of ingredients) {
+            this.ingredientList.push(ingredient);
+        }
+        */
+        
+        //Better Approach: Here we use spread operator, to add array of Ingredients received as argument to the IngredientList in one go using spread operator (...)
+        //Then emit the updatedIngredientList once
+        this.ingredientList.push(...ingredients);
+        this.updatedIngredientList.emit(this.ingredientList.slice())
     }
 }
 

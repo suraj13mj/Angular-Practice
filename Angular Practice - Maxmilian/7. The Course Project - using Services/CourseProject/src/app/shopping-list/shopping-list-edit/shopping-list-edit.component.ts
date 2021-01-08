@@ -17,6 +17,6 @@ export class ShoppingListEditComponent {
   onAdd() {
     const name = this.ingreName.nativeElement.value;
     const qty = this.ingreQty.nativeElement.value;
-    this.shoplistServ.addIngredient(name, qty);
+    this.shoplistServ.addIngredient(new Ingredient(name, qty));
   }
 }

@@ -10,7 +10,13 @@ import { RecipesService } from '../recipes.service';
 export class RecipesDetailComponent implements OnInit {
   @Input() recipeInfo: Recipe;
 
+  constructor(private recipeServ: RecipesService) { }
+  
   ngOnInit() { 
+  }
+
+  onAddtoSList() {
+    this.recipeServ.addIngredientstoShoppingList(this.recipeInfo.ingredients)
   }
 
 }
