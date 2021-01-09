@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <li role="presentation" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">
+          <a [routerLink]="'/'">Home</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/servers">Servers</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a [routerLink]="['/users']">Users</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- The templates for respective path are rendered after this directive-->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
+
+
+  <!-- NOTES
+
+    1. We can use href="/" href="/servers" to specify the links to our tabs.
+      - This approach works, but the major problem here is that with href whenever a link is clicked, it follows it's default approach i.e a request is sent to the server for the respective HTML file registered with that path. 
+      - Here with Angular Application, it requests for the template registered with that path, then when it receives it reloads the application and displays that template. 
+      - During this process it reloads and restarts the entire Angular application for every navigation, with every reload the state of the Angular application is lost.  
+
+
+    2. In order to prevent this, Angular provides a special directive routerLink
+      - routerLink handles the process differently, it catches the click event on the tabs, it then prevents the default process. 
+      - Instead it parses the link, and searches for fitting route registered in the route configuration.
+      - It then renders the respective component template. 
+
+      - But mainly it prevents the restarting of the application. 
+
+
+    3. [routerLink]="'/servers'"   <====>  routerLink = "/servers"
+      - Whenever while Property binding a string type, we can emit [] and directly assign to the Property.
+      
+      - We can also specify paths using arrays, these are used to specify more specific paths 
+        [routerLink]="["/servers", "active"]"   i.e http://localhost:4200/servers/active
+
+
+    4. Navigation of Paths. 
+        1. [routerLink]="'/servers'"  -- This is absolute path i.e whenever this link is clicked then it simply navigates to http://localhost:4200/servers
+            - It always is appended to the root path
+            Examples: [routerLink]="'/servers/1'"
+
+        2. [routerLink]="'servers'"   -- This is relative path i.e whenever this link is clicked then it appends the /servers to the current path i.e
+            - Here the current path is http://localhost:4200 therefore http://localhost:4200/servers
+
+            - Suppose the current path is http://localhost:4200/servers then http://localhost:4200/servers/servers 
+            - There is no such path registered. Thus gives error 
+
+        3. [routerLink]="'servers'"   OR [routerLink]="'./servers'" both indicate Relative paths. 
+
+        4. [routerLink]="'../servers'" This is also a relative path, but it directs to go 1 path segment behind and then append it
+            - Current path: http://localhost:4200/servers then http://localhost:4200/servers
+
+            - Current path: http://localhost:4200/servers/1 then http://localhost:4200/servers
+              - It doesn't only remove 1, but removes /servers/1 i.e removes related entire path segment
+
+            - Current path: http://localhost:4200/main/servers/1 then http://localhost:4200/main/servers
+
+        5. Relative pathing works at the first level, becoz they get appended directly to the root path i.e http://localhost:4200 
+        - But in subsequent levels, they get appended to the current path. 
+        - We can use relative paths, but we need to register nested routes in the AppModule for them to work properly. 
+
+
+    5. Styling Active Router Links
+        - In order to dynamically add css styles to the active routes, Angular provides a directive [routerLinkActive]="'CSS Class'"
+        - Ex: 'active' Bootstrap CSS class dynamically gets added to the element, if the route is active. 
+        - Angular add these CSS class to the element if route of the element is part of the URL   
+        - "/" route of Home Component is part of both "/servers" and "/users"
+        - There Angular always applies it to the Home Route "/"
+        - In order to prevent this we have [RouterLinkActiveOptions]="{exact: true}" which can set to match the exact path instead of being a part of the URL. 
+
+      
+  -->

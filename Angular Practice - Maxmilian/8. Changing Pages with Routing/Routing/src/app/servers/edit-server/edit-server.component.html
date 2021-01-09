@@ -1,0 +1,26 @@
+<a routerLink="../servers"> Refresh Servers</a>    <!-- Relative path that directs to go 1 path segment behind current path -->
+<br><br>                                            <!-- Current Path: http://localhost:4200/servers-->
+
+<div class="form-group">
+  <label for="name">Server Name</label>
+  <input
+    type="text"
+    id="name"
+    class="form-control"
+    [(ngModel)]="serverName">
+</div>
+
+<div class="form-group">
+  <label for="status">Server Status</label>
+  <select
+    id="status"
+    class="form-control"
+    [(ngModel)]="serverStatus">
+    <option value="online">Online</option>
+    <option value="offline">Offline</option>
+  </select>
+</div>
+<button
+  class="btn btn-primary"
+  (click)="onUpdateServer()">Update Server
+</button>
