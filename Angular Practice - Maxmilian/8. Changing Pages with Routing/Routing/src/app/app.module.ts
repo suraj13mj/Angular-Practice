@@ -17,9 +17,11 @@ import { ServersService } from './servers/servers.service';
 
 
 const appRoutes: Routes = [
-  { path: "", component: HomeComponent },             //localhost:4200/
-  { path: "users", component: UserComponent },        //localhost:4200/users
+  { path: "", component: HomeComponent },                           //localhost:4200/
+  { path: "users", component: UsersComponent },                     //localhost:4200/users
+  { path: "users/:id/:name", component: UserComponent },            //localhost:4200/users/1/Max
   { path: "servers", component: ServersComponent },
+  { path: "servers/:id/edit", component: EditServerComponent }      //local:4200/servers/1/edit
 ]
 
 @NgModule({
@@ -62,6 +64,29 @@ export class AppModule { }
   - Angular renders the templates of the components of the selected path, after this directive.
   - We usually add this in the app.component.html
 
-5. Next step is to add some working links to our tabs in the Navigation Bar
+5. Next step is to add some working links to our tabs in the Navigation Bar 
+
+----------------------------------------------------------------------------------------
+
+1. { path: "users/:id", component: UserComponent } 
+  - This specifies the routes that can called dynamically i.e id is the router parameter that is passed to this route.
+  - id can be anything Ex: 1, or suraj13mj or true etc
+  - The route parameter that is passed from the url
+  - When is this route with routeParameter is triggered, it displays respective component (UserComponent)
+
+
+  2. Similar to the Route Parameter, we can pass
+    1. Query Parameter along with URL, Query Parameter are separated from the Router Parameters using ?
+      - Query Parameters are separated from each other using &
+      Ex: localhost:4200/servers/4/edit ? allowEdit:1 & allowSave:1
+    
+      - Query Parameters are not declared in the Routes array, as they are just info passed for adjusting different setting while rendering the components.
+      - These Query Parameters can be accessed from the Component, thus adjusting Component rendering based on the value of Query Parameter.
+
+    2. Fragments are separated from Query Parameters with # 
+      - We can pass only 1 Fragment with an URL. 
+      - Fragments are also passed as an info with URL, generally to specify which specific place to jump on the app.
+      Ex: localhost:4200/servers/4/edit ? allowEdit:1 & allowSave:1 # loading
+    
 
 */

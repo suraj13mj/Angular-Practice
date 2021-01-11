@@ -1,6 +1,24 @@
 <a routerLink="../servers"> Refresh Servers</a>    <!-- Relative path that directs to go 1 path segment behind current path -->
 <br><br>                                            <!-- Current Path: http://localhost:4200/servers-->
 
+
+<button (click)="onReloadServer()"> Reload Servers</button>
+
+<hr>
+
+<!-- Passing Query Parameter and Fragments using routerLink-->
+<button 
+  [routerLink]="['/servers', 1, 'edit']"
+  [queryParams]="{'allowEdit': 1, 'allowSave': 1}"
+  [fragment]="'loading'"> 
+  Load Production Server
+</button>
+
+<!-- Passing Query Parameter and Fragments using router.navigate() -->
+<button (click)="onLoadTestServer()">Load Test Server</button>
+
+<hr>
+
 <div class="form-group">
   <label for="name">Server Name</label>
   <input
