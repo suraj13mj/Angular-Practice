@@ -88,5 +88,4 @@ export class AppModule { }
       - Fragments are also passed as an info with URL, generally to specify which specific place to jump on the app.
       Ex: localhost:4200/servers/4/edit ? allowEdit:1 & allowSave:1 # loading
     
-
 */

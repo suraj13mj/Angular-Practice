@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { ServersService } from '../servers.service';
 
@@ -8,12 +10,30 @@ import { ServersService } from '../servers.service';
   styleUrls: ['./server.component.css']
 })
 export class ServerComponent implements OnInit {
-  server: {id: number, name: string, status: string};
+  server: { id: number, name: string, status: string };
+  subscribedParams: Subscription;
 
-  constructor(private serversService: ServersService) { }
+  constructor(private serversService: ServersService,
+    private presentRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
-    this.server = this.serversService.getServer(1);
+    const ID = +this.presentRoute.snapshot.params['id'];
+    this.server = this.serversService.getServer(ID);
+
+    this.subscribedParams = this.presentRoute.params.subscribe(
+      (params: Params) => {
+        const ID = +this.presentRoute.snapshot.params['id'];
+        this.server = this.serversService.getServer(ID);
+      }
+    )
   }
 
+  onModifyClick() {
+    this.router.navigate(["edit"], {relativeTo: this.presentRoute, queryParamsHandling: 'preserve'});
+  }
+
+  ngOnDestroy() {
+    this.subscribedParams.unsubscribe();
+  }
 }
