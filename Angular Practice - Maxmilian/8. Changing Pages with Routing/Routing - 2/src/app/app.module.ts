@@ -17,7 +17,8 @@ import { ServersService } from './servers/servers.service';
 
 
 const appRoutes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "", redirectTo: "/home", pathMatch: 'full'},                           
+  { path: "home", component: HomeComponent},                        
   {
     path: "users", component: UsersComponent, children: [
       { path: ":id/:name", component: UserComponent }
@@ -30,7 +31,7 @@ const appRoutes: Routes = [
     ]
   },
   { path: "not-found", component: PageNotFoundComponent },
-  { path: "**", redirectTo: "/not-found"},
+  { path: "**", redirectTo: "/not-found", },
   // { path: "**", redirectTo: "not-found" }
   // { path: "**", redirectTo: "users/2/Max" }
   // { path: "**", redirectTo: "/users/2/Max" }
@@ -101,12 +102,11 @@ export class AppModule { }
     - For redirectTo we can use absolute or relative path.
 
 4. Angular path are matched by prefix i.e
-      localhost:4200/servers/skgkgkhshgskhg   : is a invalid route
+    - The path-matching strategy, one of 'prefix' or 'full'. Default is 'prefix'.
+    - By default, the router checks URL elements from the left to see if the URL matches a given path, and stops when there is a match. 
 
-    - But since the first path /servers matches to ServersComponent, it displays the ServersComponent.
-    - Thus in-order to have complete path entered by the user to be matched with paths registered in application.
-    - We need to include another property i.e 
-      pathMatch: 'full'
+    - The URL must match any of the paths, then that respective gets displayed.
+    Ex: localhost:4200/servers/1
 
 
 */
