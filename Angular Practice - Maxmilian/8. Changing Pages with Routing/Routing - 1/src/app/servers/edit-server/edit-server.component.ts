@@ -42,7 +42,9 @@ export class EditServerComponent implements OnInit {
   }
 
   onReloadServer() {
-    this.router.navigate(['servers']);      //navigates to http://localhost:4200/servers         
+    this.router.navigate(['servers']);
+    //Current Route http://localhost:4200/servers
+    //navigates to http://localhost:4200/servers
     
     //this.router.navigate(['servers'], { relativeTo: this.presentRoute });
 
@@ -90,7 +92,7 @@ export class EditServerComponent implements OnInit {
   3. Using router.navigate()
     this.router.navigate(['servers', 2, 'edit'], { queryParams:{allowEdit: '1', allowSave: '1'}, fragment:'loading' })
 
-    - Here we pass an objects containing queryParams and fragments as keys to the navigate method.
+    - Here we pass an object containing queryParams and fragments as keys to the navigate method.
 
   ---------------------------------------------------------------------
   * Accessing the Query Parameters and Fragments fromt the URL

@@ -1,10 +1,9 @@
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RouterModule } from '@angular/router';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { Routes, RouterModule } from '@angular/router';
-
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -14,29 +13,10 @@ import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './auth-guard.service';
+import { AuthService } from './auth.service';
 
-
-const appRoutes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: 'full'},                           
-  { path: "home", component: HomeComponent},                        
-  {
-    path: "users", component: UsersComponent, children: [
-      { path: ":id/:name", component: UserComponent }
-    ]
-  },
-  {
-    path: "servers", component: ServersComponent, children: [
-      { path: ":id", component: ServerComponent },
-      { path: ":id/edit", component: EditServerComponent }
-    ]
-  },
-  { path: "not-found", component: PageNotFoundComponent },
-  { path: "**", redirectTo: "/not-found", },
-  // { path: "**", redirectTo: "not-found" }
-  // { path: "**", redirectTo: "users/2/Max" }
-  // { path: "**", redirectTo: "/users/2/Max" }
-  
-]
 
 @NgModule({
   declarations: [
@@ -46,14 +26,15 @@ const appRoutes: Routes = [
     ServersComponent,
     UserComponent,
     EditServerComponent,
-    ServerComponent
+    ServerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
-  providers: [ServersService],
+  providers: [ServersService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
@@ -101,12 +82,41 @@ export class AppModule { }
     - For path property, we shouldn't prefix the path with '/'
     - For redirectTo we can use absolute or relative path.
 
-4. Angular path are matched by prefix i.e
-    - The path-matching strategy, one of 'prefix' or 'full'. Default is 'prefix'.
-    - By default, the router checks URL elements from the left to see if the URL matches a given path, and stops when there is a match. 
+4. Angular matches paths using 2 strategies 1. Prefix 2. Full 
+    - For Normal Route matching, Angular uses Full Strategy, the entire url must match any of the listed routes.
+    
+    - When using redirection in Angular i.e using redirectTo, Angular matches the paths using 'Prefix' strategy.
+    - 'Prefix' strategy is the default strategy while matching (for redirection)
+    - By default, the router checks URL elements from the left to see if the URL matches a given path registered in the app, and stops when there is a match. 
+    - Angular matches the listed routes from top to bottom, if the URL is part of some listed route then that path gets matched
 
-    - The URL must match any of the paths, then that respective gets displayed.
-    Ex: localhost:4200/servers/1
+    Ex: { path: '', redirectTo: '/user' } 
 
+        Listed Routes:
+        { path: "home", component: HomeComponent}
+        { path: "server", component: ServerComponent}
+        { path: "user", component: UserComponent}
+
+        Here: http://localhost:8200/home route gets matched first bcoz the url '' is part of every route
+
+        Thus we use pathMatch: 'full' strategy
+    
+    ------------------------------------------------------------------------------------------------------------
+    * MAX Notes
+
+    In our example, we didn't encounter any issues when we tried to redirect the user. But that's not always the case when adding redirections.
+    By default, Angular matches paths by prefix. That means, that the following route will match both /recipes  and just / 
+
+    { path: '', redirectTo: '/somewhere-else' } 
+
+    Actually, Angular will give you an error here, because that's a common gotcha: This route will now ALWAYS redirect you! Why?
+
+    Since the default matching strategy is "prefix" , Angular checks if the path you entered in the URL does start with the path specified in the route. Of course every path starts with ''  (Important: That's no whitespace, it's simply "nothing").
+
+    To fix this behavior, you need to change the matching strategy to "full" :
+
+    { path: '', redirectTo: '/somewhere-else', pathMatch: 'full' } 
+
+    Now, you only get redirected, if the full path is ''  (so only if you got NO other content in your path in this example).
 
 */

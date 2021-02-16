@@ -75,14 +75,14 @@
     5. Styling Active Router Links
         - In order to dynamically add css styles to the active routes, Angular provides a directive [routerLinkActive]="'CSS Class'"
         - Ex: 'active' Bootstrap CSS class dynamically gets added to the element, if the route is active. 
-        - Angular add these CSS class to the element if route of the element is part of the URL   
+        - Angular adds these CSS class to the element if route of the element is part of the URL   
         - "/" route of Home Component is part of both "/servers" and "/users"
         - Thus Angular even always applies it to the Home Route "/" 
         - In order to prevent this we have [RouterLinkActiveOptions]="{exact: true}" which can set to match the exact path instead of being a part of the URL.
         - We can apply these directives directly to the elements holding the links OR to the immediated parent elements.  
 
     6. Navigating Programmatically (Ex: In Home Component)
-        - Suppose user has performed some necessary steps, then he has to be navigated to a new page or tab i.e to a new route
+        - Suppose user has to perform some necessary steps, then he has to be navigated to a new page or tab i.e to a new route
         - Or When the user clicks on a certain button, then he has to be navigated to a new route. 
 
         * Handling the navigation in TypeScript class, using event handling methods
@@ -103,7 +103,7 @@
 
     11. Accessing the Query Parameter and Fragments from the URL (Edit-Server Component)
 
-    12. We type convert string to Number by appending '+' infront of string type;
+    12. We can type convert string to Number by appending '+' infront of string type;
       Ex: let num: number = +'5';
 
       

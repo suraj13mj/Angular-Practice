@@ -70,11 +70,12 @@ export class AppModule { }
 ----------------------------------------------------------------------------------------
 
 1. { path: "users/:id", component: UserComponent } 
-  - This specifies the routes that can called dynamically i.e id is the router parameter that is passed to this route.
+  - This specifies the routes that can called dynamically i.e id is the route parameter that is passed to this route.
   - id can be anything Ex: 1, or suraj13mj or true etc
   - The route parameter that is passed from the url
   - When this route with routeParameter is triggered, it displays respective component (UserComponent)
 
+----------------------------------------------------------------------------------------
 
   2. Similar to the Route Parameter, we can pass
     1. Query Parameter along with URL, Query Parameter are separated from the Router Parameters using ?
