@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Data, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { ServersService } from '../servers.service';
@@ -18,6 +18,7 @@ export class ServerComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    /*
     const ID = +this.presentRoute.snapshot.params['id'];
     this.server = this.serversService.getServer(ID);
 
@@ -27,13 +28,24 @@ export class ServerComponent implements OnInit {
         this.server = this.serversService.getServer(ID);
       }
     )
+    */
+    
+    //Using ServerResolver
+
+    this.presentRoute.data.subscribe(
+      (data: Data) => {
+        this.server = data['server'];
+      }
+    )
   }
 
   onModifyClick() {
     this.router.navigate(["edit"], {relativeTo: this.presentRoute, queryParamsHandling: 'preserve'});
   }
 
+  /*
   ngOnDestroy() {
     this.subscribedParams.unsubscribe();
   }
+  */
 }

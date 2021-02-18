@@ -34,6 +34,12 @@
 
 8. Protecting Routes with canActivate Guard. (In auth-guard.service.ts)
 
-9. Protecting Child (Nested) Routes with canActivateChild Guard (In auth-guard.service.ts)
+9. Protecting Child (Nested) Routes with CanActivateChild Guard (In auth-guard.service.ts)
+
+10. Controlling Navigation with CanDeactivateGuard (In can-deactivate-guard.service.ts)
+
+11. Passing static data to a Route. (Error Component).
+
+12. Passing dynamic data with the resolve guard. (Servers Component).
     
 */
