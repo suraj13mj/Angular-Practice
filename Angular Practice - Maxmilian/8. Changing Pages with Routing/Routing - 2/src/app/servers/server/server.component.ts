@@ -31,7 +31,7 @@ export class ServerComponent implements OnInit {
     */
     
     //Using ServerResolver
-
+    
     this.presentRoute.data.subscribe(
       (data: Data) => {
         this.server = data['server'];

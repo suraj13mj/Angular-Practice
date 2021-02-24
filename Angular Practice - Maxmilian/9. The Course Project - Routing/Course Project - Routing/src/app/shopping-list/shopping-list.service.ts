@@ -22,7 +22,7 @@ export class ShoppingListService {
     }
 
     addIngredients(ingredients: Ingredient[]) {
-        /* Here, for each iteration, a updatedIngredientList is emitted 
+        /* Here, for each iteration, a updatedIngredientList is emitted
         for (let ingredient of ingredients) {
             this.ingredientList.push(ingredient);
         }

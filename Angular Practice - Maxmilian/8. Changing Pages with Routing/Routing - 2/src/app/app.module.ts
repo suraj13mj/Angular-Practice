@@ -94,14 +94,19 @@ export class AppModule { }
     - By default, the router checks URL elements from the left to see if the URL matches a given path registered in the app, and stops when there is a match. 
     - Angular matches the listed routes from top to bottom, if the URL is part of some listed route then that path gets matched
 
-    Ex: { path: '', redirectTo: '/user' } 
+    Ex: http://localhost:8200/
 
         Listed Routes:
+        { path: '', redirectTo: '/user'}
         { path: "home", component: HomeComponent}
         { path: "server", component: ServerComponent}
         { path: "user", component: UserComponent}
 
-        Here: http://localhost:8200/home route gets matched first bcoz the url '' is part of every route
+        Here, {path: '', redirectTo: '/user'} path gets matched
+        - Next again Angular scans the Routes from top to bottom to redirect to the '/user' route.
+        - '' is part of every route i.e '' is part of even 'user' path
+        - Since the matching strategy for redirection is prefix, and '' is part of 'user' 
+        - Thus everytime Angular keeps matching the same {path: '', redirectTo: '/user'} route and falls in an endless loop.
 
         Thus we use pathMatch: 'full' strategy
     

@@ -40,6 +40,7 @@
 
 11. Passing static data to a Route. (Error Component).
 
-12. Passing dynamic data with the resolve guard. (Servers Component).
-    
+12. Passing dynamic data with the resolve guard. (ServerResolver).
+
+13. Understanding Location Strategies i.e using hash in the route (AppRoutingModule)    
 */
