@@ -9,11 +9,4 @@ import { RecipesService } from './recipes.service';
   providers: [RecipesService]
 })
 export class RecipesComponent {
-  recipeInfo: Recipe;
-
-  constructor(private recipeServ: RecipesService) {
-    this.recipeServ.dispRecipe.subscribe(
-      (recipeInfo: Recipe) => this.recipeInfo = recipeInfo
-    );
-   }
 }

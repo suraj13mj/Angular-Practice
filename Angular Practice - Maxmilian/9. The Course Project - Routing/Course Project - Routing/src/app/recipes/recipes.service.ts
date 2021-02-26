@@ -22,10 +22,14 @@ export class RecipesService {
     2. It can then be modified from other places, thus no use of private access specifier
     3. Thus we need to return this.recipeList.slice(), here a reference of the copy of array object is passed.
     */
-    getRecipe() {
+    getRecipes() {
         return this.recipeList.slice();
     }
     
+    getRecipe(index: number) {
+        return this.recipeList.slice()[index];
+    }
+
     dispRecipe = new EventEmitter<Recipe>();
 
     addIngredientstoShoppingList(ingredients: Ingredient[]) {
